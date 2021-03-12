@@ -147,12 +147,12 @@
         <div data-silex-type="container-element" class="editable-style silex-element-content website-width silex-id-1483139730465-6 container-element">
             
             
-        <div data-silex-type="text-element" class="editable-style silex-id-1552773751232-5 text-element silex-component prevent-resizable hide-on-desktop hamburger-menu prevent-auto-z-index"><div class="silex-element-content normal"><style>.hamburger-menu_1615496080990_180 {position: absolute; z-index: 20;}.silex-editor .hamburger-menu_1615496080990_180 nav {left: -9999px;}.hamburger-menu_1615496080990_180 nav ul {margin-top: 80px;}.hamburger-menu_1615496080990_180 nav {opacity: 0; position: absolute; background-color: #ededed; transition: left 1s ease, height 0s ease 1s; left: -300px; width: 300px; height: 20px;}.hamburger-menu_1615496080990_180.open nav {opacity: 1; height: 100vh; left: 0; transition: left 1s ease, height 0s ease 0s;}.hamburger-menu_1615496080990_180 .nav-container {z-index: 10; position: absolute;}.hamburger-menu_1615496080990_180.open .nav-container {}.hamburger-menu_1615496080990_180 .hamburger-btn {z-index: 20; cursor: pointer; position: absolute;}.hamburger-menu_1615496080990_180 .hamburger-btn span {display: block; width: 30px; height: 5px; margin-bottom: 3px; position: relative; background-color: #000000; border: 1px solid #ffffff; border-radius: 3px; transition: border-color 0.1s ease-in,
+        <div data-silex-type="text-element" class="editable-style silex-id-1552773751232-5 text-element silex-component prevent-resizable hide-on-desktop hamburger-menu prevent-auto-z-index"><div class="silex-element-content normal"><style>.hamburger-menu_1615507895759_936 {position: absolute; z-index: 20;}.silex-editor .hamburger-menu_1615507895759_936 nav {left: -9999px;}.hamburger-menu_1615507895759_936 nav ul {margin-top: 80px;}.hamburger-menu_1615507895759_936 nav {opacity: 0; position: absolute; background-color: #ededed; transition: left 1s ease, height 0s ease 1s; left: -300px; width: 300px; height: 20px;}.hamburger-menu_1615507895759_936.open nav {opacity: 1; height: 100vh; left: 0; transition: left 1s ease, height 0s ease 0s;}.hamburger-menu_1615507895759_936 .nav-container {z-index: 10; position: absolute;}.hamburger-menu_1615507895759_936.open .nav-container {}.hamburger-menu_1615507895759_936 .hamburger-btn {z-index: 20; cursor: pointer; position: absolute;}.hamburger-menu_1615507895759_936 .hamburger-btn span {display: block; width: 30px; height: 5px; margin-bottom: 3px; position: relative; background-color: #000000; border: 1px solid #ffffff; border-radius: 3px; transition: border-color 0.1s ease-in,
       opacity 0.1s ease-in,
       transform 0.1s ease-in,
-      background 0.1s ease-in;}.hamburger-menu_1615496080990_180.open .hamburger-btn span {border-color: rgba(255, 255, 255, 0);}.hamburger-menu_1615496080990_180 .hamburger-btn span:first-child {transform-origin: 4px -2px;}.hamburger-menu_1615496080990_180.open .hamburger-btn span:first-child {transform: rotate(45deg) translate(7px, -4px);}.hamburger-menu_1615496080990_180.open .hamburger-btn span:nth-last-child(2) {opacity: 0;}.hamburger-menu_1615496080990_180 .hamburger-btn span:nth-child(3) {transform-origin: -11px 4px;}.hamburger-menu_1615496080990_180.open .hamburger-btn span:nth-child(3) {transform: rotate(-45deg) translate(0, 12px);}</style>
+      background 0.1s ease-in;}.hamburger-menu_1615507895759_936.open .hamburger-btn span {border-color: rgba(255, 255, 255, 0);}.hamburger-menu_1615507895759_936 .hamburger-btn span:first-child {transform-origin: 4px -2px;}.hamburger-menu_1615507895759_936.open .hamburger-btn span:first-child {transform: rotate(45deg) translate(7px, -4px);}.hamburger-menu_1615507895759_936.open .hamburger-btn span:nth-last-child(2) {opacity: 0;}.hamburger-menu_1615507895759_936 .hamburger-btn span:nth-child(3) {transform-origin: -11px 4px;}.hamburger-menu_1615507895759_936.open .hamburger-btn span:nth-child(3) {transform: rotate(-45deg) translate(0, 12px);}</style>
 <!-- inspired by https://codepen.io/erikterwan/pen/EVzeRP -->
-<div class="hamburger-menu_1615496080990_180 closed">
+<div class="hamburger-menu_1615507895759_936 closed">
     <div class="hamburger-btn ">
       <span></span>
       <span></span>
@@ -163,11 +163,11 @@
         <nav role="navigation" class="">
             <ul>
             
-                <li><a href="./" class="">Home</a></li>
+                <li><a href="home.html">Home</a></li>
             
-                <li><a href="products.html" class="">Products</a></li>
+                <li><a href="products.html">Products</a></li>
             
-                <li><a href="about.html" class="">About</a></li>
+                <li><a href="about.html">About</a></li>
             
                 <li><a href="contact.html" class="page-link-active">Contact</a></li>
             
@@ -181,26 +181,26 @@
   var isOpen = false;
   function close() {
     isOpen = false;
-    $('.hamburger-menu_1615496080990_180').removeClass('open');
-    $('.hamburger-menu_1615496080990_180').addClass('closed');
+    $('.hamburger-menu_1615507895759_936').removeClass('open');
+    $('.hamburger-menu_1615507895759_936').addClass('closed');
   }
   function open() {
     isOpen = true;
-    $('.hamburger-menu_1615496080990_180').addClass('open');
-    $('.hamburger-menu_1615496080990_180').removeClass('closed');
+    $('.hamburger-menu_1615507895759_936').addClass('open');
+    $('.hamburger-menu_1615507895759_936').removeClass('closed');
   }
   function toggle() {
     if(isOpen) close();
     else open();
   }
-  var silexElement = $('.hamburger-menu_1615496080990_180').closest('.editable-style');
+  var silexElement = $('.hamburger-menu_1615507895759_936').closest('.editable-style');
   function move(data) {
     var offset = silexElement.offset();
-    $('.hamburger-menu_1615496080990_180 .nav-container').css({
+    $('.hamburger-menu_1615507895759_936 .nav-container').css({
       'transform': 'translate(' + (data.scrollLeft - (offset.left/data.scale)) + 'px, ' + (data.scrollTop - (offset.top/data.scale)) + 'px)'
     });
   }
-  $('.hamburger-menu_1615496080990_180 .hamburger-btn').click(function() { toggle(); });
+  $('.hamburger-menu_1615507895759_936 .hamburger-btn').click(function() { toggle(); });
   $(document).on('silex.scroll silex.resize', function(e) {
     close();
     move(window.silex);
@@ -208,10 +208,10 @@
   close();
 })();
 </script>
-</div></div><div data-silex-type="container-element" class="editable-style silex-id-1552773787501-6 container-element hide-on-desktop"></div><div class="editable-style text-element silex-id-1439156722322-45 hide-on-mobile nav" data-silex-type="text-element" style="">
-                <div class="silex-element-content normal"><p><a href="./" rel="" target="" type="" title="" download="" linktype="LinkTypePage">Home</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<a href="about.html">About</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Links&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="contact.html" linktype="LinkTypePage" title="Kontaktformular" class="page-link-active">Contact us</a>
+</div></div><div data-silex-type="container-element" class="editable-style silex-id-1552773787501-6 container-element hide-on-desktop"></div><div data-silex-type="image-element" class="editable-style image-element silex-id-1594133214699-0" style=""><img src="assets/frame0002.png"></div><div data-silex-type="text-element" class="editable-style text-element silex-id-1615505839774-293 nav" style=""><div class="silex-element-content normal"><p><a href="./" linktype="LinkTypePage" class="">Home</a></p></div></div><div data-silex-type="container-element" class="editable-style container-element silex-id-1615508100342-0" style=""><div data-silex-type="image-element" class="editable-style image-element silex-id-1615508126606-1" style=""><img src="assets/sign-2408065_640.png"></div></div><div class="editable-style text-element silex-id-1439156722322-45 hide-on-mobile nav" data-silex-type="text-element" style="">
+                <div class="silex-element-content normal"><p><a href="contact.html" title="Kontaktformular" class="page-link-active">Contact us</a>
                         </p></div>
-            </div><div data-silex-type="image-element" class="editable-style image-element silex-id-1594133214699-0" style=""><img src="assets/frame0002.png"></div><div data-silex-type="image-element" class="editable-style image-element silex-id-1615499098299-25" style=""><img src="assets/sign-2408065_640.png"></div></div>
+            </div></div>
     </section><section data-silex-type="container-element" class="container-element editable-style section-element silex-id-1483140114350-8 prevent-resizable page-contact paged-element paged-element-visible">
 
         <div data-silex-type="container-element" class="editable-style silex-element-content website-width container-element silex-id-1483140114351-9">
@@ -223,7 +223,7 @@
             
         <div data-silex-type="text-element" class="editable-style silex-id-1483140123370-22 text-element" style="">
                 <div class="silex-element-content normal"><h2>Kontaktformular<br></h2></div>
-            </div><div data-silex-type="html-element" class="editable-style silex-id-1548873044453-5 html-element silex-component silex-component-form silex-use-height-not-minheight silex-element-content-full-height" style=""><div class="silex-element-content"><form id="id_1615497951716_409" action="https://formspree.io/sonjaheinze@gmail.com" method="POST">
+            </div><div data-silex-type="html-element" class="editable-style silex-id-1548873044453-5 html-element silex-component silex-component-form silex-use-height-not-minheight silex-element-content-full-height" style=""><div class="silex-element-content"><form id="id_1615507895774_728" action="https://formspree.io/sonjaheinze@gmail.com" method="POST">
   
   <div>
     <label for="field1">Name</label>
@@ -244,7 +244,7 @@
   
   <input type="submit" value="Senden">
 </form>
-<style>#id_1615497951716_409 input[type=text], select {width: 100%; padding: 12px 20px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;}#id_1615497951716_409 input[type=submit] {width: 100%; background-color: #FFE9B9; color: #000000; padding: 14px 20px; margin: 8px 0; border: 1px solid #FFE9B9; border-radius: 3px; cursor: pointer;}#id_1615497951716_409 label {color: #000000;}#id_1615497951716_409 .fill-vertical {flex: 1 1 auto; display: flex; flex-direction: column;}#id_1615497951716_409 .fill-vertical textarea {flex: 1 1 auto; width: 100%; height: 150px; padding: 12px 20px; box-sizing: border-box; border: 2px solid #ccc; border-radius: 3px; background-color: #f8f8f8; font-size: 16px; resize: none;}#id_1615497951716_409 {border-radius: 3px; display: flex; flex-direction: column; justify-content: space-between; height: 100%;}</style>
+<style>#id_1615507895774_728 input[type=text], select {width: 100%; padding: 12px 20px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;}#id_1615507895774_728 input[type=submit] {width: 100%; background-color: #FFE9B9; color: #000000; padding: 14px 20px; margin: 8px 0; border: 1px solid #FFE9B9; border-radius: 3px; cursor: pointer;}#id_1615507895774_728 label {color: #000000;}#id_1615507895774_728 .fill-vertical {flex: 1 1 auto; display: flex; flex-direction: column;}#id_1615507895774_728 .fill-vertical textarea {flex: 1 1 auto; width: 100%; height: 150px; padding: 12px 20px; box-sizing: border-box; border: 2px solid #ccc; border-radius: 3px; background-color: #f8f8f8; font-size: 16px; resize: none;}#id_1615507895774_728 {border-radius: 3px; display: flex; flex-direction: column; justify-content: space-between; height: 100%;}</style>
 
 </div></div></div>
     </section><section data-silex-type="container-element" class="container-element editable-style silex-id-1483139189898-1 section-element prevent-resizable" style="">

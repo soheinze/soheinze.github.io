@@ -147,12 +147,12 @@
         <div data-silex-type="container-element" class="editable-style silex-element-content website-width silex-id-1483139730465-6 container-element">
             
             
-        <div data-silex-type="text-element" class="editable-style silex-id-1552773751232-5 text-element silex-component prevent-resizable hide-on-desktop hamburger-menu prevent-auto-z-index"><div class="silex-element-content normal"><style>.hamburger-menu_1615496080990_180 {position: absolute; z-index: 20;}.silex-editor .hamburger-menu_1615496080990_180 nav {left: -9999px;}.hamburger-menu_1615496080990_180 nav ul {margin-top: 80px;}.hamburger-menu_1615496080990_180 nav {opacity: 0; position: absolute; background-color: #ededed; transition: left 1s ease, height 0s ease 1s; left: -300px; width: 300px; height: 20px;}.hamburger-menu_1615496080990_180.open nav {opacity: 1; height: 100vh; left: 0; transition: left 1s ease, height 0s ease 0s;}.hamburger-menu_1615496080990_180 .nav-container {z-index: 10; position: absolute;}.hamburger-menu_1615496080990_180.open .nav-container {}.hamburger-menu_1615496080990_180 .hamburger-btn {z-index: 20; cursor: pointer; position: absolute;}.hamburger-menu_1615496080990_180 .hamburger-btn span {display: block; width: 30px; height: 5px; margin-bottom: 3px; position: relative; background-color: #000000; border: 1px solid #ffffff; border-radius: 3px; transition: border-color 0.1s ease-in,
+        <div data-silex-type="text-element" class="editable-style silex-id-1552773751232-5 text-element silex-component prevent-resizable hide-on-desktop hamburger-menu prevent-auto-z-index"><div class="silex-element-content normal"><style>.hamburger-menu_1615507895759_936 {position: absolute; z-index: 20;}.silex-editor .hamburger-menu_1615507895759_936 nav {left: -9999px;}.hamburger-menu_1615507895759_936 nav ul {margin-top: 80px;}.hamburger-menu_1615507895759_936 nav {opacity: 0; position: absolute; background-color: #ededed; transition: left 1s ease, height 0s ease 1s; left: -300px; width: 300px; height: 20px;}.hamburger-menu_1615507895759_936.open nav {opacity: 1; height: 100vh; left: 0; transition: left 1s ease, height 0s ease 0s;}.hamburger-menu_1615507895759_936 .nav-container {z-index: 10; position: absolute;}.hamburger-menu_1615507895759_936.open .nav-container {}.hamburger-menu_1615507895759_936 .hamburger-btn {z-index: 20; cursor: pointer; position: absolute;}.hamburger-menu_1615507895759_936 .hamburger-btn span {display: block; width: 30px; height: 5px; margin-bottom: 3px; position: relative; background-color: #000000; border: 1px solid #ffffff; border-radius: 3px; transition: border-color 0.1s ease-in,
       opacity 0.1s ease-in,
       transform 0.1s ease-in,
-      background 0.1s ease-in;}.hamburger-menu_1615496080990_180.open .hamburger-btn span {border-color: rgba(255, 255, 255, 0);}.hamburger-menu_1615496080990_180 .hamburger-btn span:first-child {transform-origin: 4px -2px;}.hamburger-menu_1615496080990_180.open .hamburger-btn span:first-child {transform: rotate(45deg) translate(7px, -4px);}.hamburger-menu_1615496080990_180.open .hamburger-btn span:nth-last-child(2) {opacity: 0;}.hamburger-menu_1615496080990_180 .hamburger-btn span:nth-child(3) {transform-origin: -11px 4px;}.hamburger-menu_1615496080990_180.open .hamburger-btn span:nth-child(3) {transform: rotate(-45deg) translate(0, 12px);}</style>
+      background 0.1s ease-in;}.hamburger-menu_1615507895759_936.open .hamburger-btn span {border-color: rgba(255, 255, 255, 0);}.hamburger-menu_1615507895759_936 .hamburger-btn span:first-child {transform-origin: 4px -2px;}.hamburger-menu_1615507895759_936.open .hamburger-btn span:first-child {transform: rotate(45deg) translate(7px, -4px);}.hamburger-menu_1615507895759_936.open .hamburger-btn span:nth-last-child(2) {opacity: 0;}.hamburger-menu_1615507895759_936 .hamburger-btn span:nth-child(3) {transform-origin: -11px 4px;}.hamburger-menu_1615507895759_936.open .hamburger-btn span:nth-child(3) {transform: rotate(-45deg) translate(0, 12px);}</style>
 <!-- inspired by https://codepen.io/erikterwan/pen/EVzeRP -->
-<div class="hamburger-menu_1615496080990_180 closed">
+<div class="hamburger-menu_1615507895759_936 closed">
     <div class="hamburger-btn ">
       <span></span>
       <span></span>
@@ -163,13 +163,13 @@
         <nav role="navigation" class="">
             <ul>
             
-                <li><a href="./" class="">Home</a></li>
+                <li><a href="home.html">Home</a></li>
             
-                <li><a href="products.html" class="">Products</a></li>
+                <li><a href="products.html">Products</a></li>
             
-                <li><a href="about.html" class="">About</a></li>
+                <li><a href="about.html">About</a></li>
             
-                <li><a href="contact.html" class="">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
             
             </ul>
         </nav>
@@ -181,26 +181,26 @@
   var isOpen = false;
   function close() {
     isOpen = false;
-    $('.hamburger-menu_1615496080990_180').removeClass('open');
-    $('.hamburger-menu_1615496080990_180').addClass('closed');
+    $('.hamburger-menu_1615507895759_936').removeClass('open');
+    $('.hamburger-menu_1615507895759_936').addClass('closed');
   }
   function open() {
     isOpen = true;
-    $('.hamburger-menu_1615496080990_180').addClass('open');
-    $('.hamburger-menu_1615496080990_180').removeClass('closed');
+    $('.hamburger-menu_1615507895759_936').addClass('open');
+    $('.hamburger-menu_1615507895759_936').removeClass('closed');
   }
   function toggle() {
     if(isOpen) close();
     else open();
   }
-  var silexElement = $('.hamburger-menu_1615496080990_180').closest('.editable-style');
+  var silexElement = $('.hamburger-menu_1615507895759_936').closest('.editable-style');
   function move(data) {
     var offset = silexElement.offset();
-    $('.hamburger-menu_1615496080990_180 .nav-container').css({
+    $('.hamburger-menu_1615507895759_936 .nav-container').css({
       'transform': 'translate(' + (data.scrollLeft - (offset.left/data.scale)) + 'px, ' + (data.scrollTop - (offset.top/data.scale)) + 'px)'
     });
   }
-  $('.hamburger-menu_1615496080990_180 .hamburger-btn').click(function() { toggle(); });
+  $('.hamburger-menu_1615507895759_936 .hamburger-btn').click(function() { toggle(); });
   $(document).on('silex.scroll silex.resize', function(e) {
     close();
     move(window.silex);
@@ -208,14 +208,14 @@
   close();
 })();
 </script>
-</div></div><div data-silex-type="container-element" class="editable-style silex-id-1552773787501-6 container-element hide-on-desktop"></div><div class="editable-style text-element silex-id-1439156722322-45 hide-on-mobile nav" data-silex-type="text-element" style="">
-                <div class="silex-element-content normal"><p><a href="./" rel="" target="" type="" title="" download="" linktype="LinkTypePage">Home</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<a href="about.html">About</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Links&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="contact.html" linktype="LinkTypePage" title="Kontaktformular" class="">Contact us</a>
+</div></div><div data-silex-type="container-element" class="editable-style silex-id-1552773787501-6 container-element hide-on-desktop"></div><div data-silex-type="image-element" class="editable-style image-element silex-id-1594133214699-0" style=""><img src="assets/frame0002.png"></div><div data-silex-type="text-element" class="editable-style text-element silex-id-1615505839774-293 nav" style=""><div class="silex-element-content normal"><p><a href="./" linktype="LinkTypePage" class="">Home</a></p></div></div><div data-silex-type="container-element" class="editable-style container-element silex-id-1615508100342-0" style=""><div data-silex-type="image-element" class="editable-style image-element silex-id-1615508126606-1" style=""><img src="assets/sign-2408065_640.png"></div></div><div class="editable-style text-element silex-id-1439156722322-45 hide-on-mobile nav" data-silex-type="text-element" style="">
+                <div class="silex-element-content normal"><p><a href="contact.html" title="Kontaktformular" class="">Contact us</a>
                         </p></div>
-            </div><div data-silex-type="image-element" class="editable-style image-element silex-id-1594133214699-0" style=""><img src="assets/frame0002.png"></div><div data-silex-type="image-element" class="editable-style image-element silex-id-1615499098299-25" style=""><img src="assets/sign-2408065_640.png"></div></div>
-    </section><div data-silex-type="container-element" class="editable-style section-element silex-id-1615497071209-1 page-game-design paged-element paged-element-visible" style=""><div data-silex-type="container-element" class="editable-style container-element silex-id-1615497071209-2 silex-element-content website-width prevent-draggable" style=""><div data-silex-type="text-element" class="editable-style text-element silex-id-1615497496665-17" style=""><div class="silex-element-content normal"><h2>Game Design</h2></div></div><div data-silex-type="container-element" class="editable-style container-element silex-id-1615499659399-26" style=""><div data-silex-type="html-element" class="editable-style html-element silex-id-1615499806322-28 silex-component-slideshow silex-use-height-not-minheight" style=""><div class="silex-element-content"><div id="parent_1615500024785_526">
+            </div></div>
+    </section><div data-silex-type="container-element" class="editable-style section-element silex-id-1615497071209-1 page-game-design paged-element paged-element-visible" style=""><div data-silex-type="container-element" class="editable-style container-element silex-id-1615497071209-2 silex-element-content website-width prevent-draggable" style=""><div data-silex-type="text-element" class="editable-style text-element silex-id-1615497496665-17" style=""><div class="silex-element-content normal"><h2>Game Design</h2></div></div><div data-silex-type="container-element" class="editable-style container-element silex-id-1615499659399-26" style=""><div data-silex-type="html-element" class="editable-style html-element silex-id-1615499806322-28 silex-component-slideshow silex-use-height-not-minheight" style=""><div class="silex-element-content"><div id="parent_1615507895777_175">
 <!-- preview -->
 
-<div id="id_1615500024785_526">
+<div id="id_1615507895777_175">
   <!-- runtime -->
   <!-- the whole slideshow -->
   <ul class="prodotype-runtime">
@@ -231,14 +231,14 @@
   </ul>
 </div>
 </div>
-<style type="text/css">#parent_1615500024785_526 .prodotype-preview {list-style-type: none; margin: 0; padding: 0;}#parent_1615500024785_526 .prodotype-preview .preview-text {display: flex; align-items: center; justify-content: center;}#parent_1615500024785_526 .prodotype-preview .preview-text p {z-index: 1; background-color: black; color: white;}#parent_1615500024785_526 .slide-0 .slide-image {}#parent_1615500024785_526 .slide-image {width: 100%; display: flex; justify-content: center; background-repeat: no-repeat; background-size: cover; background-position: 50%; align-items: flex-end;}#parent_1615500024785_526 figcaption {padding: 50px; color: white; background-color: rgba(0,0,0,0.5); width: 100%; text-align: center;}#parent_1615500024785_526 .unslider-nav {position: absolute; bottom: 10px; left: 0; right: 0; top: auto; margin: 0;}#parent_1615500024785_526 .unslider-nav ol {text-align: center;}#parent_1615500024785_526 .unslider-nav ol li.unslider-active {background: #fff; cursor: default; opacity: 1;}#parent_1615500024785_526 .unslider-nav ol li {display: inline-block; float: none; width: 6px; height: 6px; margin: 0 4px; padding: 3px; background: transparent; border-radius: 10px; overflow: hidden; text-indent: -999em; border: 2px solid #fff; cursor: pointer; opacity: .4;}#parent_1615500024785_526 .unslider-arrow {display: block; width: 32px; height: 32px; top: 50%; right: 16px; left: auto; margin-top: -16px; overflow: hidden; background: rgba(0,0,0,.2) no-repeat 50% 50%; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAQCAQAAABuQZ3IAAAAi0lEQVR4AU3OISBEQQBAwS0AACS9NxqQgCZpkiYBVddFvWhAAUABAPQCAGC4g/0vTnrBqCfDIZl70J+kMUBPpEwT4FNXxBxz4F1HxHyr4EVTxBLb4EFNxEon4CJSlVNw9AcV9sC16h8osgke1P1ArgXwouVvdQq86ww/GQefusNf7kBviBlxpT8k+gL/Wox4r1d4MwAAAABJRU5ErkJggg==); background-size: 7px 11px; border-radius: 32px; text-indent: -999em; opacity: .6; transition: opacity .2s;}#parent_1615500024785_526 .unslider-arrow.prev {left: 16px; right: auto; -ms-transform: rotate(-180deg); transform: rotate(-180deg);}</style>
+<style type="text/css">#parent_1615507895777_175 .prodotype-preview {list-style-type: none; margin: 0; padding: 0;}#parent_1615507895777_175 .prodotype-preview .preview-text {display: flex; align-items: center; justify-content: center;}#parent_1615507895777_175 .prodotype-preview .preview-text p {z-index: 1; background-color: black; color: white;}#parent_1615507895777_175 .slide-0 .slide-image {}#parent_1615507895777_175 .slide-image {width: 100%; display: flex; justify-content: center; background-repeat: no-repeat; background-size: cover; background-position: 50%; align-items: flex-end;}#parent_1615507895777_175 figcaption {padding: 50px; color: white; background-color: rgba(0,0,0,0.5); width: 100%; text-align: center;}#parent_1615507895777_175 .unslider-nav {position: absolute; bottom: 10px; left: 0; right: 0; top: auto; margin: 0;}#parent_1615507895777_175 .unslider-nav ol {text-align: center;}#parent_1615507895777_175 .unslider-nav ol li.unslider-active {background: #fff; cursor: default; opacity: 1;}#parent_1615507895777_175 .unslider-nav ol li {display: inline-block; float: none; width: 6px; height: 6px; margin: 0 4px; padding: 3px; background: transparent; border-radius: 10px; overflow: hidden; text-indent: -999em; border: 2px solid #fff; cursor: pointer; opacity: .4;}#parent_1615507895777_175 .unslider-arrow {display: block; width: 32px; height: 32px; top: 50%; right: 16px; left: auto; margin-top: -16px; overflow: hidden; background: rgba(0,0,0,.2) no-repeat 50% 50%; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAQCAQAAABuQZ3IAAAAi0lEQVR4AU3OISBEQQBAwS0AACS9NxqQgCZpkiYBVddFvWhAAUABAPQCAGC4g/0vTnrBqCfDIZl70J+kMUBPpEwT4FNXxBxz4F1HxHyr4EVTxBLb4EFNxEon4CJSlVNw9AcV9sC16h8osgke1P1ArgXwouVvdQq86ww/GQefusNf7kBviBlxpT8k+gL/Wox4r1d4MwAAAABJRU5ErkJggg==); background-size: 7px 11px; border-radius: 32px; text-indent: -999em; opacity: .6; transition: opacity .2s;}#parent_1615507895777_175 .unslider-arrow.prev {left: 16px; right: auto; -ms-transform: rotate(-180deg); transform: rotate(-180deg);}</style>
 <script type="text/javascript">
   (function() {
     function initUnslider() {
       // do not start in the editor (it would mess with the markup)
       if(!$('body').hasClass('silex-runtime')) return;
 
-      var slider = $('#id_1615500024785_526').unslider({
+      var slider = $('#id_1615507895777_175').unslider({
         'autoplay': false,
         'speed': 750,
         'delay': 3000,
@@ -250,10 +250,10 @@
       //  Listen to slide changes
       
       // apply element height to the images
-      var silexElement = $('#id_1615500024785_526').closest('.editable-style');
+      var silexElement = $('#id_1615507895777_175').closest('.editable-style');
       var elementMinHeight = silexElement.css('height');
       var elementWidth = silexElement.css('width');
-      $('#id_1615500024785_526 li .slide-image').css({
+      $('#id_1615507895777_175 li .slide-image').css({
         'height': elementMinHeight
       });
       
@@ -261,10 +261,10 @@
     initUnslider();
   })();
 </script>
-</div></div><div data-silex-type="text-element" class="editable-style text-element silex-id-1615499729446-27" style=""><div class="silex-element-content normal"><h3>Charakter Design</h3><p>Wie entsteht ein Charakter für ein Spiel?</p><p>Schritte beschreiben</p><p>Screenshots in der Slideshow</p></div></div></div><div data-silex-type="container-element" class="editable-style container-element silex-id-1615500124478-29" style=""><div data-silex-type="text-element" class="editable-style text-element silex-id-1615500124478-30" style=""><div class="silex-element-content normal"><h3>Das Storyboard</h3><p>Kurz etwas zum Storyboard und den Anforderungen daran, sowie Zweck des Storyboards</p><p>Screenshots</p></div></div><div data-silex-type="html-element" class="editable-style html-element silex-id-1615500124478-31 silex-component-slideshow silex-use-height-not-minheight" style=""><div class="silex-element-content"><div id="parent_1615500024785_526">
+</div></div><div data-silex-type="text-element" class="editable-style text-element silex-id-1615499729446-27" style=""><div class="silex-element-content normal"><h3>Charakter Design</h3><p>Wie entsteht ein Charakter für ein Spiel?</p><p>Schritte beschreiben</p><p>Screenshots in der Slideshow</p></div></div></div><div data-silex-type="container-element" class="editable-style container-element silex-id-1615500124478-29" style=""><div data-silex-type="text-element" class="editable-style text-element silex-id-1615500124478-30" style=""><div class="silex-element-content normal"><h3>Das Storyboard</h3><p>Kurz etwas zum Storyboard und den Anforderungen daran, sowie Zweck des Storyboards</p><p>Screenshots</p></div></div><div data-silex-type="html-element" class="editable-style html-element silex-id-1615500124478-31 silex-component-slideshow silex-use-height-not-minheight" style=""><div class="silex-element-content"><div id="parent_1615507895783_845">
 <!-- preview -->
 
-<div id="id_1615500024785_526">
+<div id="id_1615507895783_845">
   <!-- runtime -->
   <!-- the whole slideshow -->
   <ul class="prodotype-runtime">
@@ -280,14 +280,14 @@
   </ul>
 </div>
 </div>
-<style type="text/css">#parent_1615500024785_526 .prodotype-preview {list-style-type: none; margin: 0; padding: 0;}#parent_1615500024785_526 .prodotype-preview .preview-text {display: flex; align-items: center; justify-content: center;}#parent_1615500024785_526 .prodotype-preview .preview-text p {z-index: 1; background-color: black; color: white;}#parent_1615500024785_526 .slide-0 .slide-image {}#parent_1615500024785_526 .slide-image {width: 100%; display: flex; justify-content: center; background-repeat: no-repeat; background-size: cover; background-position: 50%; align-items: flex-end;}#parent_1615500024785_526 figcaption {padding: 50px; color: white; background-color: rgba(0,0,0,0.5); width: 100%; text-align: center;}#parent_1615500024785_526 .unslider-nav {position: absolute; bottom: 10px; left: 0; right: 0; top: auto; margin: 0;}#parent_1615500024785_526 .unslider-nav ol {text-align: center;}#parent_1615500024785_526 .unslider-nav ol li.unslider-active {background: #fff; cursor: default; opacity: 1;}#parent_1615500024785_526 .unslider-nav ol li {display: inline-block; float: none; width: 6px; height: 6px; margin: 0 4px; padding: 3px; background: transparent; border-radius: 10px; overflow: hidden; text-indent: -999em; border: 2px solid #fff; cursor: pointer; opacity: .4;}#parent_1615500024785_526 .unslider-arrow {display: block; width: 32px; height: 32px; top: 50%; right: 16px; left: auto; margin-top: -16px; overflow: hidden; background: rgba(0,0,0,.2) no-repeat 50% 50%; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAQCAQAAABuQZ3IAAAAi0lEQVR4AU3OISBEQQBAwS0AACS9NxqQgCZpkiYBVddFvWhAAUABAPQCAGC4g/0vTnrBqCfDIZl70J+kMUBPpEwT4FNXxBxz4F1HxHyr4EVTxBLb4EFNxEon4CJSlVNw9AcV9sC16h8osgke1P1ArgXwouVvdQq86ww/GQefusNf7kBviBlxpT8k+gL/Wox4r1d4MwAAAABJRU5ErkJggg==); background-size: 7px 11px; border-radius: 32px; text-indent: -999em; opacity: .6; transition: opacity .2s;}#parent_1615500024785_526 .unslider-arrow.prev {left: 16px; right: auto; -ms-transform: rotate(-180deg); transform: rotate(-180deg);}</style>
+<style type="text/css">#parent_1615507895783_845 .prodotype-preview {list-style-type: none; margin: 0; padding: 0;}#parent_1615507895783_845 .prodotype-preview .preview-text {display: flex; align-items: center; justify-content: center;}#parent_1615507895783_845 .prodotype-preview .preview-text p {z-index: 1; background-color: black; color: white;}#parent_1615507895783_845 .slide-0 .slide-image {}#parent_1615507895783_845 .slide-image {width: 100%; display: flex; justify-content: center; background-repeat: no-repeat; background-size: cover; background-position: 50%; align-items: flex-end;}#parent_1615507895783_845 figcaption {padding: 50px; color: white; background-color: rgba(0,0,0,0.5); width: 100%; text-align: center;}#parent_1615507895783_845 .unslider-nav {position: absolute; bottom: 10px; left: 0; right: 0; top: auto; margin: 0;}#parent_1615507895783_845 .unslider-nav ol {text-align: center;}#parent_1615507895783_845 .unslider-nav ol li.unslider-active {background: #fff; cursor: default; opacity: 1;}#parent_1615507895783_845 .unslider-nav ol li {display: inline-block; float: none; width: 6px; height: 6px; margin: 0 4px; padding: 3px; background: transparent; border-radius: 10px; overflow: hidden; text-indent: -999em; border: 2px solid #fff; cursor: pointer; opacity: .4;}#parent_1615507895783_845 .unslider-arrow {display: block; width: 32px; height: 32px; top: 50%; right: 16px; left: auto; margin-top: -16px; overflow: hidden; background: rgba(0,0,0,.2) no-repeat 50% 50%; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAQCAQAAABuQZ3IAAAAi0lEQVR4AU3OISBEQQBAwS0AACS9NxqQgCZpkiYBVddFvWhAAUABAPQCAGC4g/0vTnrBqCfDIZl70J+kMUBPpEwT4FNXxBxz4F1HxHyr4EVTxBLb4EFNxEon4CJSlVNw9AcV9sC16h8osgke1P1ArgXwouVvdQq86ww/GQefusNf7kBviBlxpT8k+gL/Wox4r1d4MwAAAABJRU5ErkJggg==); background-size: 7px 11px; border-radius: 32px; text-indent: -999em; opacity: .6; transition: opacity .2s;}#parent_1615507895783_845 .unslider-arrow.prev {left: 16px; right: auto; -ms-transform: rotate(-180deg); transform: rotate(-180deg);}</style>
 <script type="text/javascript">
   (function() {
     function initUnslider() {
       // do not start in the editor (it would mess with the markup)
       if(!$('body').hasClass('silex-runtime')) return;
 
-      var slider = $('#id_1615500024785_526').unslider({
+      var slider = $('#id_1615507895783_845').unslider({
         'autoplay': false,
         'speed': 750,
         'delay': 3000,
@@ -299,10 +299,10 @@
       //  Listen to slide changes
       
       // apply element height to the images
-      var silexElement = $('#id_1615500024785_526').closest('.editable-style');
+      var silexElement = $('#id_1615507895783_845').closest('.editable-style');
       var elementMinHeight = silexElement.css('height');
       var elementWidth = silexElement.css('width');
-      $('#id_1615500024785_526 li .slide-image').css({
+      $('#id_1615507895783_845 li .slide-image').css({
         'height': elementMinHeight
       });
       
@@ -310,10 +310,10 @@
     initUnslider();
   })();
 </script>
-</div></div></div><div data-silex-type="container-element" class="editable-style container-element silex-id-1615500142886-32" style=""><div data-silex-type="html-element" class="editable-style html-element silex-id-1615500142886-34 silex-component-slideshow silex-use-height-not-minheight" style=""><div class="silex-element-content"><div id="parent_1615500024785_526">
+</div></div></div><div data-silex-type="container-element" class="editable-style container-element silex-id-1615500142886-32" style=""><div data-silex-type="html-element" class="editable-style html-element silex-id-1615500142886-34 silex-component-slideshow silex-use-height-not-minheight" style=""><div class="silex-element-content"><div id="parent_1615507895789_61">
 <!-- preview -->
 
-<div id="id_1615500024785_526">
+<div id="id_1615507895789_61">
   <!-- runtime -->
   <!-- the whole slideshow -->
   <ul class="prodotype-runtime">
@@ -328,15 +328,15 @@
   
   </ul>
 </div>
-﻿</div>
-<style type="text/css">#parent_1615500024785_526 .prodotype-preview {list-style-type: none; margin: 0; padding: 0;}#parent_1615500024785_526 .prodotype-preview .preview-text {display: flex; align-items: center; justify-content: center;}#parent_1615500024785_526 .prodotype-preview .preview-text p {z-index: 1; background-color: black; color: white;}#parent_1615500024785_526 .slide-0 .slide-image {}#parent_1615500024785_526 .slide-image {width: 100%; display: flex; justify-content: center; background-repeat: no-repeat; background-size: cover; background-position: 50%; align-items: flex-end;}#parent_1615500024785_526 figcaption {padding: 50px; color: white; background-color: rgba(0,0,0,0.5); width: 100%; text-align: center;}#parent_1615500024785_526 .unslider-nav {position: absolute; bottom: 10px; left: 0; right: 0; top: auto; margin: 0;}#parent_1615500024785_526 .unslider-nav ol {text-align: center;}#parent_1615500024785_526 .unslider-nav ol li.unslider-active {background: #fff; cursor: default; opacity: 1;}#parent_1615500024785_526 .unslider-nav ol li {display: inline-block; float: none; width: 6px; height: 6px; margin: 0 4px; padding: 3px; background: transparent; border-radius: 10px; overflow: hidden; text-indent: -999em; border: 2px solid #fff; cursor: pointer; opacity: .4;}#parent_1615500024785_526 .unslider-arrow {display: block; width: 32px; height: 32px; top: 50%; right: 16px; left: auto; margin-top: -16px; overflow: hidden; background: rgba(0,0,0,.2) no-repeat 50% 50%; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAQCAQAAABuQZ3IAAAAi0lEQVR4AU3OISBEQQBAwS0AACS9NxqQgCZpkiYBVddFvWhAAUABAPQCAGC4g/0vTnrBqCfDIZl70J+kMUBPpEwT4FNXxBxz4F1HxHyr4EVTxBLb4EFNxEon4CJSlVNw9AcV9sC16h8osgke1P1ArgXwouVvdQq86ww/GQefusNf7kBviBlxpT8k+gL/Wox4r1d4MwAAAABJRU5ErkJggg==); background-size: 7px 11px; border-radius: 32px; text-indent: -999em; opacity: .6; transition: opacity .2s;}#parent_1615500024785_526 .unslider-arrow.prev {left: 16px; right: auto; -ms-transform: rotate(-180deg); transform: rotate(-180deg);}</style>
+</div>
+<style type="text/css">#parent_1615507895789_61 .prodotype-preview {list-style-type: none; margin: 0; padding: 0;}#parent_1615507895789_61 .prodotype-preview .preview-text {display: flex; align-items: center; justify-content: center;}#parent_1615507895789_61 .prodotype-preview .preview-text p {z-index: 1; background-color: black; color: white;}#parent_1615507895789_61 .slide-0 .slide-image {}#parent_1615507895789_61 .slide-image {width: 100%; display: flex; justify-content: center; background-repeat: no-repeat; background-size: cover; background-position: 50%; align-items: flex-end;}#parent_1615507895789_61 figcaption {padding: 50px; color: white; background-color: rgba(0,0,0,0.5); width: 100%; text-align: center;}#parent_1615507895789_61 .unslider-nav {position: absolute; bottom: 10px; left: 0; right: 0; top: auto; margin: 0;}#parent_1615507895789_61 .unslider-nav ol {text-align: center;}#parent_1615507895789_61 .unslider-nav ol li.unslider-active {background: #fff; cursor: default; opacity: 1;}#parent_1615507895789_61 .unslider-nav ol li {display: inline-block; float: none; width: 6px; height: 6px; margin: 0 4px; padding: 3px; background: transparent; border-radius: 10px; overflow: hidden; text-indent: -999em; border: 2px solid #fff; cursor: pointer; opacity: .4;}#parent_1615507895789_61 .unslider-arrow {display: block; width: 32px; height: 32px; top: 50%; right: 16px; left: auto; margin-top: -16px; overflow: hidden; background: rgba(0,0,0,.2) no-repeat 50% 50%; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAQCAQAAABuQZ3IAAAAi0lEQVR4AU3OISBEQQBAwS0AACS9NxqQgCZpkiYBVddFvWhAAUABAPQCAGC4g/0vTnrBqCfDIZl70J+kMUBPpEwT4FNXxBxz4F1HxHyr4EVTxBLb4EFNxEon4CJSlVNw9AcV9sC16h8osgke1P1ArgXwouVvdQq86ww/GQefusNf7kBviBlxpT8k+gL/Wox4r1d4MwAAAABJRU5ErkJggg==); background-size: 7px 11px; border-radius: 32px; text-indent: -999em; opacity: .6; transition: opacity .2s;}#parent_1615507895789_61 .unslider-arrow.prev {left: 16px; right: auto; -ms-transform: rotate(-180deg); transform: rotate(-180deg);}</style>
 <script type="text/javascript">
   (function() {
     function initUnslider() {
       // do not start in the editor (it would mess with the markup)
       if(!$('body').hasClass('silex-runtime')) return;
 
-      var slider = $('#id_1615500024785_526').unslider({
+      var slider = $('#id_1615507895789_61').unslider({
         'autoplay': false,
         'speed': 750,
         'delay': 3000,
@@ -348,10 +348,10 @@
       //  Listen to slide changes
       
       // apply element height to the images
-      var silexElement = $('#id_1615500024785_526').closest('.editable-style');
+      var silexElement = $('#id_1615507895789_61').closest('.editable-style');
       var elementMinHeight = silexElement.css('height');
       var elementWidth = silexElement.css('width');
-      $('#id_1615500024785_526 li .slide-image').css({
+      $('#id_1615507895789_61 li .slide-image').css({
         'height': elementMinHeight
       });
       
