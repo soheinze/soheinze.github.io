@@ -83,7 +83,7 @@ header h1 {
 }
 
 
-#contact-info h2 {
+header h2 {
     font-size: 1.5rem;
     color: #ec4899; /* Pink color on hover (Tailwind's pink-500) */
     margin-top: 1.5rem;
