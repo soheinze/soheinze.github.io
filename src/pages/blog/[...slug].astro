@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content';
+
+// 1. getStaticPaths: Sagt Astro, welche Seiten es überhaupt gibt.
+// Da wir eine statische Seite bauen (SSG), muss Astro VORHER wissen,
+// welche URLs existieren.
+export async function getStaticPaths() {
+  // Wir holen ALLE Posts aus der Collection 'blog'
+  const posts = await getCollection('blog');
+
+  // Wir geben für jeden Post ein Objekt zurück, das die URL (params)
+  // und die Daten (props) enthält.
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+// 2. Zugriff auf die Daten für die AKTUELLE Seite
+const { post } = Astro.props;
+
+// 3. Den Markdown-Inhalt in HTML umwandeln
+const { Content } = await post.render();
+---
+
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{post.data.title}</title>
+  </head>
+  <body>
+    <main style="max-width: 800px; margin: 0 auto; padding: 2rem; font-family: sans-serif;">
+
+      <a href="/" style="color: blue; text-decoration: none;">← Zurück zur Startseite</a>
+      <hr />
+      <p style="color: gray;">
+        Veröffentlicht am {post.data.pubDate.toLocaleDateString('de-DE')}
+      </p>
+
+      <h1>{post.data.title}</h1>
+
+      <article>
+        <Content />
+      </article>
+
+    </main>
+  </body>
+</html>

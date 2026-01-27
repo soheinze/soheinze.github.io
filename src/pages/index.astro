@@ -1,17 +1,75 @@
 ---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PinCard from '../components/PinCard.astro';
 
+const pageTitle = "Meine Pinnwand";
+
+// 1. Wir holen ALLE Posts aus der Collection 'blog'
+const allPosts = await getCollection('blog');
+
+// --- DEBUGGING START ---
+// Wir prüfen vor dem Sortieren, ob Daten fehlen und geben es im Terminal aus
+allPosts.forEach(post => {
+  if (!post.data.pubDate) {
+    console.error('FEHLER Der Post "${post.slug}" hat kein gültiges Datum (pubDate)!');
+  }
+});
+// --- DEBUGGING ENDE ---
+
+// Sicheres Sortieren. Wenn kein Datum da ist, nehmen wir "0" (ganz alt), damit es nicht abstürzt
+allPosts.sort((a, b) => {
+  const dateA = a.data.pubDate ? a.data.pubDate.valueOf() : 0;
+  const dateB = b.data.pubDate ? b.data.pubDate.valueOf() : 0;
+  return dateB - dateA;
+});
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+
+  <div class="intro">
+    <h1>Hallo 👋</h1>
+    <p>Willkommen in meinem digitalen Garten.</p>
+  </div>
+
+  <div class="masonry-grid">
+    {allPosts.map((post) => (
+      <PinCard post={post} />
+    ))}
+  </div>
+
+</BaseLayout>
+
+<style>
+  .intro {
+    text-align: center;
+    padding: 2rem 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* --- DAS MASONRY RASTER --- */
+  .masonry-grid {
+    /* Die Magie: CSS Columns erstellt Spalten, in die der Inhalt fließt */
+    column-count: 3;
+    column-gap: 1.5rem;
+
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem 4rem 1rem; /* Unten etwas Platz lassen */
+  }
+
+  /* Responsiv: Auf Tablets nur 2 Spalten */
+  @media (max-width: 900px) {
+    .masonry-grid {
+      column-count: 2;
+    }
+  }
+
+  /* Responsiv: Auf Handys nur 1 Spalte (normale Liste) */
+  @media (max-width: 600px) {
+    .masonry-grid {
+      column-count: 1;
+    }
+  }
+</style>

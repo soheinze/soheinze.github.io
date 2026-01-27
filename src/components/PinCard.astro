@@ -1,0 +1,97 @@
+---
+// Wir bekommen den "post" als Property übergeben
+const { post } = Astro.props;
+
+// Wir formatieren das Datum schön deutsch (z.B. "20.3.2024")
+const formattedDate = post.data.pubDate.toLocaleDateString('de-DE');
+---
+
+<a href={`/blog/${post.slug}`} class="pin-card">
+  <article>
+    {post.data.image && (
+      <img src={post.data.image} alt={post.data.title} loading="lazy" />
+    )}
+
+    <div class="content">
+      <h3 class="title">{post.data.title}</h3>
+      <p class="date">{formattedDate}</p>
+
+      {post.data.description && (
+        <p class="description">{post.data.description}</p>
+      )}
+
+      <div class="tags">
+        {post.data.tags.map((tag) => (
+          <span class="tag">#{tag}</span>
+        ))}
+      </div>
+    </div>
+  </article>
+</a>
+
+<style>
+  .pin-card {
+    display: block; /* Damit der Link die ganze Karte umfasst */
+    text-decoration: none;
+    color: inherit;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden; /* Damit das Bild an den Ecken nicht übersteht */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--color-border);
+
+    /* WICHTIG für Masonry: Damit die Karte nicht umgebrochen wird */
+    break-inside: avoid;
+    margin-bottom: 1.5rem; /* Abstand nach unten zur nächsten Karte */
+  }
+
+  .pin-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-color: var(--color-accent);
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+
+  .title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+    color: var(--color-text);
+  }
+
+  .date {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    background-color: #f0f0f0;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    color: #666;
+  }
+</style>

@@ -1,0 +1,32 @@
+---
+// Wir importieren die globalen Styles, damit sie überall verfügbar sind
+import '../styles/global.css';
+
+// Import der Komponenten
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
+// Wir definieren Props, damit wir jeder Seite einen eigenen Titel geben können
+const { pageTitle } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+      <Navigation/>
+
+      <main>
+        <slot/>
+      </main>
+
+      <Footer/>
+    </body>
+</html>

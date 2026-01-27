@@ -1,0 +1,49 @@
+<header>
+  <nav>
+    <a href="/" class="logo">Meine Pinnwand</a>
+
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about">Über mich</a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  header {
+    padding: 1rem 2rem;
+    background: white;
+    /* Sticky: Bleibt oben kleben, wenn man scrollt (optional) */
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between; /* Links und Rechts verteilen */
+    align-items: center;
+    max-width: 1200px; /* Nicht breiter als das Grid später */
+    margin: 0 auto;
+  }
+
+  .logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--color-text);
+  }
+
+  .nav-links a {
+    margin-left: 1.5rem;
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 0.95rem;
+  }
+
+  .nav-links a:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+</style>
