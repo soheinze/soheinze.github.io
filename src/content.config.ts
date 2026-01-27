@@ -21,8 +21,12 @@ const blogCollection = defineCollection({
     // Optional: Ein Bild für den Post
     image: z.string().optional(),
 
+    //Sprache (optional, Standard ist 'de')
+    lang: z.enum(['de', 'en', 'fr']).optional().default('de'),
+
     // Optional: Entwurfs-Status. Wenn true, können wir den Post später ausblenden
     draft: z.boolean().default(false),
+    
   }),
 });
 

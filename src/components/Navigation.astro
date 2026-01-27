@@ -1,29 +1,41 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils'; // Diese Hilfsdatei erstellen wir gleich noch!
+import { languages } from '../i18n/ui';
+
+// Wir ermitteln die aktuelle Sprache anhand der URL
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
 <header>
   <nav>
-    <a href="/" class="logo">Meine Pinnwand</a>
+    <a href={`/${lang === 'de' ? '' : lang}`} class="logo">Willkommen - Welcome - Bonjour</a>
 
     <div class="nav-links">
-      <a href="/">Home</a>
-      <a href="/about">Über mich</a>
+      <a href={`/${lang === 'de' ? '' : lang}`}>{t('nav.home')}</a>
+      <a href={`/${lang === 'de' ? '' : lang + '/'}about`}>{t('nav.about')}</a>
+      <a href={`/${lang === 'de' ? '' : lang + '/'}kontakt`}>{t('nav.contact')}</a>
+
+      <div class="lang-switch">
+        <span>{lang.toUpperCase()} ▼</span>
+        <div class="dropdown">
+          <a href="/">DE</a> </br>
+          <a href="/en/">EN</a> </br>
+          <a href="/fr/">FR</a>
+        </div>
+      </div>
     </div>
   </nav>
 </header>
 
 <style>
   header {
-    /* Wir nutzen die Hintergrundfarbe des Bodys, aber leicht transparent */
     background: rgba(248, 245, 230, 0.95);
     padding: 1.5rem 2rem;
-
-    /* Sticky: Bleibt oben, wirft aber jetzt einen weichen Schatten */
     position: sticky;
     top: 0;
     z-index: 100;
-
-    /* Statt einer harten Linie, ein weicher Schatten wie ein aufgelegtes Blatt Papier */
     box-shadow: 0 4px 10px -2px rgba(0,0,0,0.05);
-
-    /* Die wichtige Handschrift */
     font-family: var(--font-hand);
   }
 
@@ -36,29 +48,135 @@
   }
 
   .logo {
-    font-size: 2rem; /* Viel größer! */
+    font-size: 2rem;
     font-weight: bold;
     color: var(--color-text);
     text-decoration: none;
     letter-spacing: 1px;
-    transform: rotate(-1deg); /* Ein ganz klein wenig schief, wirkt menschlicher */
+    transform: rotate(-1deg);
   }
 
+  /* --- FIX 1: Alles in eine Zeile zwingen --- */
+  .nav-links {
+    display: flex;          /* Macht es zur flexiblen Box */
+    align-items: center;    /* Zentriert alles vertikal */
+    gap: 2rem;              /* Definiert den Abstand zwischen ALLEN Elementen */
+  }
+
+  /* Wir entfernen den alten margin-left, da wir jetzt 'gap' nutzen */
   .nav-links a {
-    margin-left: 2rem;
     text-decoration: none;
     color: var(--color-text);
-    font-size: 1.3rem; /* Auch die Links größer */
+    font-size: 1.3rem;
     position: relative;
     transition: color 0.2s ease;
   }
 
-  /* Hover-Effekt: Eine "gekritzelte" Welle unter dem Wort */
   .nav-links a:hover {
     color: var(--color-accent);
     text-decoration: underline;
-    text-decoration-style: wavy; /* Wellenlinie */
+    text-decoration-style: wavy;
     text-decoration-thickness: 2px;
     text-underline-offset: 4px;
+  }
+
+  /* --- FIX 2: Der Sprachumschalter --- */
+  .lang-switch {
+    position: relative; /* WICHTIG: Damit sich das Dropdown hieran orientiert */
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: flex;      /* Damit Text und Pfeil sauber sitzen */
+    align-items: center;
+    height: 100%;       /* Nimmt die volle Höhe ein */
+  }
+
+  /* --- FIX 3: Das Dropdown Menü --- */
+  .dropdown {
+    display: none;
+    position: absolute;
+
+    /* Positionierung direkt unter dem Wort "DE" */
+    top: 100%;
+    right: 0;   /* Bündig mit der rechten Kante des Wortes */
+    /* Alternativ: left: 50%; transform: translateX(-50%); für zentriert */
+
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+    min-width: 80px; /* Mindestbreite damit es nicht quetscht */
+    text-align: center;
+    z-index: 200; /* Sicherstellen, dass es über allem schwebt */
+    margin-top: 10px; /* Kleiner Abstand zum Header */
+  }
+
+  /* Kleiner Pfeil nach oben am Dropdown (Optional, sieht aber schick aus) */
+  .dropdown::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    right: 10px;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    transform: rotate(45deg);
+  }
+
+/* --- Der Container für den Sprachumschalter --- */
+  .lang-switch {
+    position: relative;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  /* --- Die unsichtbare Brücke (Fix für das Verschwinden) --- */
+  .lang-switch::after {
+    content: '';
+    position: absolute;
+    top: 100%;   /* Beginnt direkt unter dem Text */
+    left: 0;
+    width: 100%; /* So breit wie der Text */
+    height: 20px; /* Hoch genug, um die Lücke zum Menü zu füllen */
+    background: transparent; /* Unsichtbar */
+  }
+
+  /* --- Das Dropdown Menü --- */
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+    min-width: 80px;
+    text-align: center;
+    z-index: 200;
+
+    /* Wir behalten den Abstand für die Optik, aber die Brücke darüber fängt die Maus ab */
+    margin-top: 10px;
+  }
+
+  /* Damit das Menü sichtbar bleibt, wenn man ÜBER das Menü selbst hovert */
+  .dropdown:hover {
+    display: block;
+  }
+
+  /* Die Logik zum Anzeigen */
+  .lang-switch:hover .dropdown {
+    display: block;
   }
 </style>

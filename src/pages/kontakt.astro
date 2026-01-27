@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "Kontakt";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+
+  <div class="paper-sheet">
+    <h1>Schreib mir gerne 📬</h1>
+
+    <div class="content">
+      <p>
+        Hast du Fragen, Anregungen oder möchtest einfach Hallo sagen?
+        Ich freue mich immer über digitale Post!
+      </p>
+
+      <div class="contact-methods">
+        <div class="method">
+          <h3>E-Mail</h3>
+          <p><a href="mailto:contact@sonjaheinze.de">contact@sonjaheinze.de</a></p>
+        </div>
+
+        <div class="method">
+          <h3>Meine Profile</h3>
+          <p>
+            <a href="https://www.linkedin.com/in/sonja-heinze/" target="_blank">LinkedIn</a> •
+             <a href="https://www.xing.com/profile/Sonja_Heinze2/cv" target="_blank">Xing</a> •
+             <a href="https://github.com/soheinze" target="_blank">GitHub</a> •
+            <a href="https://x.com/sonjaheinze_" target="_blank">X</a> •
+            <a href="https://bsky.app/profile/sonjaheinze.bsky.social" target="_blank">Bluesky</a>
+
+
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</BaseLayout>
+
+<style>
+  .paper-sheet {
+    max-width: 600px;
+    margin: 3rem auto;
+    background: #fff;
+    padding: 3rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    /* Kontaktformular leicht gedreht wie ein Brief */
+    transform: rotate(-1deg);
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--color-accent);
+  }
+
+  .content {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    text-align: center; /* Zentrierter Text wirkt einladender */
+  }
+
+  .contact-methods {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .method h3 {
+    font-family: var(--font-hand);
+    margin: 0 0 0.5rem 0;
+    font-size: 1.4rem;
+  }
+
+  a {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    font-weight: bold;
+  }
+
+  a:hover {
+    color: var(--color-accent);
+    text-decoration-style: wavy;
+  }
+</style>

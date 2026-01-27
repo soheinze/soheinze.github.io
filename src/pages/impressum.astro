@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "Impressum";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+
+  <div class="paper-sheet">
+    <h1>Impressum</h1>
+
+    <div class="content">
+      <h2>Angaben gemäß § 5 TMG</h2>
+      <p>
+        Sonja Heinze
+        <br/>
+        18439 Stralsund
+      </p>
+
+
+      <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+      <p>
+        Sonja Heinze<br />
+
+      18439 Stralsund
+      </p>
+
+      <h2>Kontakt</h2>
+      <p>
+        E-Mail: <a href="mailto:mail@sonjaheinze.de">mail@sonjaheinze.de</a>
+      </p>
+
+
+      <hr />
+
+      <h3>Haftungsausschluss</h3>
+      <p class="small-text">
+        Trotz sorgfältiger inhaltlicher Kontrolle übernehme ich keine Haftung für die Inhalte externer Links.
+        Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
+      </p>
+    </div>
+  </div>
+
+</BaseLayout>
+
+<style>
+  .paper-sheet {
+    max-width: 700px;
+    margin: 3rem auto;
+    background: #fff;
+    padding: 3rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    /* Das Impressum liegt ganz gerade und ordentlich auf dem Tisch */
+    transform: rotate(0deg);
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--color-text);
+  }
+
+  h2 {
+    font-family: var(--font-hand);
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    color: #444;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+
+  a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed #ccc;
+    margin: 2rem 0;
+  }
+
+  .small-text {
+    font-size: 0.9rem;
+    color: #666;
+  }
+</style>

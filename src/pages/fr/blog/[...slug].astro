@@ -3,9 +3,8 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
-  // Auch hier: Nur deutsche oder sprachlose Posts generieren
   const posts = await getCollection('blog', ({ data }) => {
-    return data.lang === 'de' || !data.lang;
+    return data.lang === 'fr'; // Nur französische Posts für diese Route
   });
 
   return posts.map(post => ({

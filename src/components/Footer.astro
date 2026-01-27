@@ -8,7 +8,9 @@ const today = new Date();
       &copy; {today.getFullYear()} Sonja Heinze
     </p>
     <p class="note">
-      Gebaut mit Astro, Obsidian & Gemini
+      Gebaut mit Astro, Obsidian & Unterstützung von Gemini
+      <br />
+      <a href="/impressum" class="legal-link">Impressum</a>
     </p>
   </div>
 </footer>
@@ -42,5 +44,18 @@ const today = new Date();
     font-size: 1rem;
     margin: 0.5rem 0 0 0;
     opacity: 0.8;
+  }
+
+  .legal-link {
+    font-size: 0.9rem;
+    color: #888;
+    text-decoration: none;
+    margin-top: 0.5rem;
+    display: inline-block;
+    border-bottom: 1px dotted #aaa;
+  }
+
+  .legal-link:hover {
+    color: var(--color-accent);
   }
 </style>
