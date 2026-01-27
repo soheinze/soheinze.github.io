@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "Über mich";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+
+  <div class="paper-sheet">
+    <h1>Hallo, ich bin [Dein Name] 👋</h1>
+
+    <div class="content">
+      <p>
+        Willkommen auf meiner persönlichen Pinnwand. Dies ist der Ort,
+        an dem ich meine Gedanken sammle, Links speichere und Ideen teile.
+      </p>
+
+      <p>
+        Diese Seite ist ein "Digital Garden" – sie wächst organisch, genau wie meine Notizen in Obsidian.
+      </p>
+
+      <h3>Was mich interessiert</h3>
+      <ul>
+        <li>Webentwicklung & Astro</li>
+        <li>Personal Knowledge Management (PKM)</li>
+        <li>Minimalistisches Design</li>
+        <li>Guter Kaffee ☕️</li>
+      </ul>
+    </div>
+  </div>
+
+</BaseLayout>
+
+<style>
+  /* Wir nutzen fast den gleichen Style wie beim Blogpost */
+  .paper-sheet {
+    max-width: 700px;
+    margin: 3rem auto;
+    background: #fff;
+    padding: 3rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transform: rotate(1deg); /* In die andere Richtung gedreht als der Blogpost */
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--color-accent);
+  }
+
+  .content {
+    font-size: 1.15rem;
+    line-height: 1.7;
+  }
+
+  ul {
+    list-style-type: square;
+    padding-left: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+</style>

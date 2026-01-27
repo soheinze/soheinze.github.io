@@ -11,39 +11,54 @@
 
 <style>
   header {
-    padding: 1rem 2rem;
-    background: white;
-    /* Sticky: Bleibt oben kleben, wenn man scrollt (optional) */
+    /* Wir nutzen die Hintergrundfarbe des Bodys, aber leicht transparent */
+    background: rgba(248, 245, 230, 0.95);
+    padding: 1.5rem 2rem;
+
+    /* Sticky: Bleibt oben, wirft aber jetzt einen weichen Schatten */
     position: sticky;
     top: 0;
-    z-index: 10;
-    border-bottom: 1px solid var(--color-border);
+    z-index: 100;
+
+    /* Statt einer harten Linie, ein weicher Schatten wie ein aufgelegtes Blatt Papier */
+    box-shadow: 0 4px 10px -2px rgba(0,0,0,0.05);
+
+    /* Die wichtige Handschrift */
+    font-family: var(--font-hand);
   }
 
   nav {
     display: flex;
-    justify-content: space-between; /* Links und Rechts verteilen */
+    justify-content: space-between;
     align-items: center;
-    max-width: 1200px; /* Nicht breiter als das Grid später */
+    max-width: 1200px;
     margin: 0 auto;
   }
 
   .logo {
+    font-size: 2rem; /* Viel größer! */
     font-weight: bold;
-    font-size: 1.2rem;
-    text-decoration: none;
     color: var(--color-text);
+    text-decoration: none;
+    letter-spacing: 1px;
+    transform: rotate(-1deg); /* Ein ganz klein wenig schief, wirkt menschlicher */
   }
 
   .nav-links a {
-    margin-left: 1.5rem;
+    margin-left: 2rem;
     text-decoration: none;
     color: var(--color-text);
-    font-size: 0.95rem;
+    font-size: 1.3rem; /* Auch die Links größer */
+    position: relative;
+    transition: color 0.2s ease;
   }
 
+  /* Hover-Effekt: Eine "gekritzelte" Welle unter dem Wort */
   .nav-links a:hover {
     color: var(--color-accent);
     text-decoration: underline;
+    text-decoration-style: wavy; /* Wellenlinie */
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
   }
 </style>

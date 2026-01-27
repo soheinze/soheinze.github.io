@@ -50,13 +50,13 @@ allPosts.sort((a, b) => {
 
   /* --- DAS MASONRY RASTER --- */
   .masonry-grid {
-    /* Die Magie: CSS Columns erstellt Spalten, in die der Inhalt fließt */
     column-count: 3;
-    column-gap: 1.5rem;
+    column-gap: 2rem; /* Mehr Platz zwischen den Spalten */
 
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem 4rem 1rem; /* Unten etwas Platz lassen */
+    /* Wichtig: Padding an den Seiten, damit gedrehte Zettel nicht aus dem Bild ragen */
+    padding: 2rem;
   }
 
   /* Responsiv: Auf Tablets nur 2 Spalten */

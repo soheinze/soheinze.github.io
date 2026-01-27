@@ -1,28 +1,49 @@
 ---
-// Wir bekommen den "post" als Property übergeben
 const { post } = Astro.props;
-
-// Wir formatieren das Datum schön deutsch (z.B. "20.3.2024")
 const formattedDate = post.data.pubDate.toLocaleDateString('de-DE');
+
+// --- POST-IT GENERATOR ---
+// 1. Eine Palette an typischen Post-It Farben definieren
+const colors = [
+  '#fff740', // Classic Yellow
+  '#feff9c', // Pale Yellow
+  '#ff7eb9', // Neon Pink
+  '#ff65a3', // Hot Pink
+  '#7afcff', // Cyan
+  '#e2f0cb', // Greenish
+];
+
+// 2. Zufällige Farbe auswählen
+// Hinweis: Da Astro statisch baut, wird die Farbe bei jedem "npm run build" neu gewürfelt,
+// bleibt dann aber auf der fertigen Seite fest.
+const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+// 3. Zufällige Rotation zwischen -3 und +3 Grad für den "unperfekten" Look
+const randomRotation = Math.floor(Math.random() * 6) - 3;
 ---
 
-<a href={`/blog/${post.slug}`} class="pin-card">
+<a
+  href={`/blog/${post.slug}`}
+  class="pin-card"
+  style={`--bg-color: ${randomColor}; --rotate: ${randomRotation}deg;`}
+>
   <article>
     {post.data.image && (
-      <img src={post.data.image} alt={post.data.title} loading="lazy" />
+      <div class="img-container">
+        <img src={post.data.image} alt={post.data.title} loading="lazy" />
+      </div>
     )}
 
     <div class="content">
       <h3 class="title">{post.data.title}</h3>
-      <p class="date">{formattedDate}</p>
 
-      {post.data.description && (
-        <p class="description">{post.data.description}</p>
-      )}
+      <div class="meta">
+        <span class="date">{formattedDate}</span>
+      </div>
 
       <div class="tags">
-        {post.data.tags.map((tag) => (
-          <span class="tag">#{tag}</span>
+        {post.data.tags.slice(0, 3).map((tag) => (
+           <span>#{tag}</span>
         ))}
       </div>
     </div>
@@ -31,67 +52,65 @@ const formattedDate = post.data.pubDate.toLocaleDateString('de-DE');
 
 <style>
   .pin-card {
-    display: block; /* Damit der Link die ganze Karte umfasst */
-    text-decoration: none;
-    color: inherit;
-    background: #fff;
-    border-radius: 8px;
-    overflow: hidden; /* Damit das Bild an den Ecken nicht übersteht */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    border: 1px solid var(--color-border);
-
-    /* WICHTIG für Masonry: Damit die Karte nicht umgebrochen wird */
-    break-inside: avoid;
-    margin-bottom: 1.5rem; /* Abstand nach unten zur nächsten Karte */
-  }
-
-  .pin-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-color: var(--color-accent);
-  }
-
-  img {
-    width: 100%;
-    height: auto;
     display: block;
-    object-fit: cover;
+    text-decoration: none;
+    color: #333; /* Dunkle Schrift für Kontrast auf hellen Zetteln */
+
+    /* Hier nutzen wir die Zufallswerte */
+    background-color: var(--bg-color);
+    transform: rotate(var(--rotate));
+
+    /* Post-It Shape */
+    padding: 1.5rem;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.15); /* Schatten hebt den Zettel ab */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* Wichtig für Masonry */
+    break-inside: avoid;
+    margin-bottom: 2rem;
+
+    /* Schriftart für den Zettel */
+    font-family: 'Patrick Hand', cursive;
   }
 
-  .content {
-    padding: 1rem;
+  /* Hover-Effekt: Zettel wird "gegriffen" und gerade gerückt */
+  .pin-card:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    box-shadow: 5px 8px 15px rgba(0,0,0,0.2);
+    z-index: 10;
+    cursor: pointer;
   }
 
   .title {
-    margin: 0 0 0.5rem 0;
-    font-size: 1.25rem;
-    color: var(--color-text);
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    font-weight: bold;
   }
 
-  .date {
-    font-size: 0.8rem;
-    color: #888;
-    margin-bottom: 0.5rem;
-  }
-
-  .description {
-    font-size: 0.95rem;
+  .meta {
+    font-size: 0.9rem;
+    color: #555;
     margin-bottom: 1rem;
-    line-height: 1.5;
+    border-bottom: 1px dashed #777; /* Eine gestrichelte Linie wie auf Notizpapier */
+    padding-bottom: 0.5rem;
+  }
+
+  .img-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    mix-blend-mode: multiply; /* Lässt das Bild etwas mit dem Papier "verschmelzen" */
+    margin-bottom: 1rem;
+    filter: sepia(0.2); /* Leichter Retro-Touch */
   }
 
   .tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-  }
-
-  .tag {
-    background-color: #f0f0f0;
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    color: #666;
+    font-size: 0.8rem;
+    color: #444;
+    justify-content: flex-end; /* Tags rechts unten */
   }
 </style>
