@@ -5,16 +5,14 @@ const formattedDate = post.data.pubDate.toLocaleDateString('de-DE');
 // --- POST-IT GENERATOR ---
 // 1. Eine Palette an typischen Post-It Farben definieren
 const colors = [
-  '#fff740', // Classic Yellow
-  '#feff9c', // Pale Yellow
-  '#ff7eb9', // Neon Pink
-  '#ff65a3', // Hot Pink
-  '#7afcff', // Cyan
-  '#e2f0cb', // Greenish
+  '#A3CCDA', // Pastel Blue
+  '#FDB7EA', // Pastel Pink
+  '#FFDCCC', // Pastel Orange
+  '#FBF3B9', // Pastel Yellow
 ];
 
 // 2. Zufällige Farbe auswählen
-// Hinweis: Da Astro statisch baut, wird die Farbe bei jedem "npm run build" neu gewürfelt,
+// Hinweis - Da Astro statisch baut, wird die Farbe bei jedem "npm run build" neu gewürfelt,
 // bleibt dann aber auf der fertigen Seite fest.
 const randomColor = colors[Math.floor(Math.random() * colors.length)];
 
