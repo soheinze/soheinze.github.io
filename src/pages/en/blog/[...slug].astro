@@ -4,7 +4,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => {
-    return data.lang === 'en'; // Nur englische Posts für diese Route
+    return data.lang === 'en'; 
   });
 
   return posts.map(post => ({
