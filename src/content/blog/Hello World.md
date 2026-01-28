@@ -10,3 +10,5 @@ lang: "en"
 
 # Hello World!
 
+This is currently my placeholder for a curated English version of my homepage. 
+

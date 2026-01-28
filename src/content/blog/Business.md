@@ -1,7 +1,7 @@
 ---
 title: QuBe LoCo - mein eigenes Unternehmen
 pubDate: 2026-01-26
-description: Ich habe mein eigenes Unternehmen gegründet.
+description: Ich habe mein eigenes Unternehmen gegründet
 tags:
   - intro
   - personal
@@ -18,6 +18,7 @@ draft: false
 Mit QuBe LoCo positioniere ich mich als "Raum für Kreativität, verrückte Ideen und innovative Konzepte".
 
 Ich habe eine Leidenschaft für digitale Transformation, kreative Lösungen und die Unterstützung von Menschen, die ihre Ideen in die Welt bringen wollen. Aus dieser Passion entsteht gerade **QuBe LoCo** – ein Unternehmen, das zeigen wird, wie digitale Medien, gezielter Einsatz der aktuellen technischen Möglichkeiten und Kreativität zusammenwirken können. 
+
 ## Coming Soon
 
 In Kürze wird es auch mehr Informationen auf der eigenen Website geben. Dort erfahrt ihr dann alles über das Leistungsportfolio, die Arbeitsweise und wie wir Projekte zum Leben erwecken können.

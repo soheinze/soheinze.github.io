@@ -1,5 +1,5 @@
 ---
-title: Studium
+title: Digital Humanities Studium
 pubDate: 2026-01-26
 description: Alles rund um mein Digital Humanities Studium
 tags:

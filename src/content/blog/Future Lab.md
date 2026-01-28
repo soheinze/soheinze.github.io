@@ -1,6 +1,6 @@
 ---
 title: Future Lab
-pubDate: 2025-01-01
+pubDate: 2026-01-01
 description: Ideenschublade
 tags:
   - public
@@ -9,8 +9,8 @@ lang: de
 draft: false
 ---
 
-Ideenschublade 
+# Die Ideenschublade 
 
-mit ein paar öffentlichen Ideen
+Nach dem Motto: `Wäre es nicht cool, wenn ...`
 
-Wäre es nicht cool, wenn ...
+und ein Ort für die Präsentation von Prototypen.

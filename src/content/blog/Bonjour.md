@@ -10,3 +10,4 @@ lang: "fr"
 
 # Bonjour!
 
+Ceci est actuellement un emplacement réservé pour une version française soignée de ma page d'accueil.

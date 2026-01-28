@@ -35,17 +35,19 @@ const randomRotation = Math.floor(Math.random() * 6) - 3;
     <div class="content">
       <h3 class="title">{post.data.title}</h3>
 
-      <div class="meta">
-        <span class="date">{formattedDate}</span>
-      </div>
+      <p class="description">{post.data.description}</p>
 
       <div class="tags">
         {post.data.tags.slice(0, 3).map((tag) => (
-           <span>#{tag}</span>
+          <span>#{tag}</span>
         ))}
       </div>
     </div>
+
   </article>
+
+
+
 </a>
 
 <style>
