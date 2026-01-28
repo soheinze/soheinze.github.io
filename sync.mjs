@@ -27,7 +27,7 @@ function syncFiles(sourceDir) {
     if (stat.isDirectory()) {
       // Rekursiv in Unterordner schauen (optional, hier erst mal deaktiviert um Fehler zu vermeiden)
       // Um Unterordner zu scannen, entferne den Kommentar vor der nächsten Zeile:
-      // syncFiles(fullPath);
+      syncFiles(fullPath);
     } else if (file.endsWith('.md')) {
       const fileContent = fs.readFileSync(fullPath, 'utf-8');
       const { data } = matter(fileContent);

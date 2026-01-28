@@ -1,12 +1,12 @@
 ---
-title: "French Version"
+title: "English Version"
 pubDate: 2026-01-26   
-description: "French Language Version."
+description: "English Language Version."
 tags: [intro, personal, webdev, public]
 image: ""             # Optional: Bild-URL oder leer lassen
 draft: false
-lang: "fr"
+lang: "en"
 ---
 
-# Bonjour!
+# Hello World!
 

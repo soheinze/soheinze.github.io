@@ -11,6 +11,5 @@ image: ""
 lang: de
 draft: false
 ---
-Pitch zu meinem Unternehmen
 
-Link zur Qube Loco Homepage
+
