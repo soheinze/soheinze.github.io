@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import profilBild from '../assets/love.jpg';
+
 const pageTitle = "Über mich";
 ---
 
@@ -7,6 +10,15 @@ const pageTitle = "Über mich";
 
   <div class="paper-sheet">
     <h1>Hallo, ich bin Sonja 👋</h1>
+
+    <div class="image-container">
+      <Image
+        src={profilBild}
+        alt="Ein Bild von Sonja"
+        width={300}
+        class="profile-pic"
+      />
+    </div>
 
     <div class="content">
       <p>
@@ -20,10 +32,12 @@ const pageTitle = "Über mich";
 
       <h3>Was mich interessiert</h3>
       <ul>
-        <li>Webentwicklung & Astro</li>
-        <li>Personal Knowledge Management (PKM)</li>
+        <li>Digital Humanities</li>
+        <li>Wissensmanagement</li>
+        <li>Musik</li>
         <li>Segeln</li>
         <li>Kunst und Kultur</li>
+        <li>Human Design und Astrologie</li>
         <li>Verantwortungsvoller Einsatz von Künstlicher Intelligenz</li>
         <li>uvm.</li>
       </ul>
@@ -62,5 +76,19 @@ const pageTitle = "Über mich";
 
   li {
     margin-bottom: 0.5rem;
+  }
+
+  .image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .profile-pic {
+    border-radius: 20%; /* Rundet das Bild ab, je größer der Wert desto runder das Bild */
+    border: 5px solid white; /* Ein kleiner weißer Rahmen wie bei einem Foto */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Leichter Schatten */
+    max-width: 100%;
+    height: auto;
   }
 </style>

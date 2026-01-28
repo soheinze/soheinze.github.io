@@ -6,7 +6,7 @@ tags:
   - studium
   - digitalhumanities
   - public
-image: ""
+image: /images/Digital-Humanities.png
 lang: de
 draft: false
 ---

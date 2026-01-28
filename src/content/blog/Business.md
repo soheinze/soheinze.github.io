@@ -7,7 +7,7 @@ tags:
   - personal
   - webdev
   - public
-image: ""
+image: /images/qubeloco.jpg
 lang: de
 draft: false
 ---

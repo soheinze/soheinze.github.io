@@ -134,9 +134,15 @@ const formattedDate = post.data.pubDate.toLocaleDateString('de-DE');
   }
 
   /* Damit Markdown-Elemente gut aussehen */
-  .prose h2, .prose h3 {
+  .prose h2 {
     font-family: var(--font-hand);
     margin-top: 2rem;
+    color: var(--color-text);
+  }
+
+  .prose h3 {
+    font-family: var(--font-hand);
+    margin-top: 1.5rem;
     color: var(--color-text);
   }
 
@@ -165,5 +171,24 @@ const formattedDate = post.data.pubDate.toLocaleDateString('de-DE');
     background-color: rgba(52, 152, 219, 0.1); /* Leichter Marker-Effekt */
     padding: 0 4px;
     border-radius: 4px;
+  }
+
+  /* Bilder im Fließtext (Body) */
+  /* :global(img) sagt Astro - "Wende das auf ALLE Bilder in .prose an,
+   egal woher sie kommen" */
+  .prose :global(img) {
+    display: block;        /* Macht das Bild zum Block-Element (wichtig fürs Zentrieren) */
+    margin: 2rem auto;     /* Oben/Unten: Abstand, Links/Rechts: Automatisch (Zentriert) */
+    max-width: 70%;        /* Begrenzt die Breite auf 70% des Textes -> wirkt kleiner */
+    height: auto;          /* Behält das Seitenverhältnis bei */
+    border-radius: 4px;    /* Leicht abgerundete Ecken wie beim Titelbild */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Leichter Schatten für Tiefe */
+  }
+
+  /* Auf sehr kleinen Handys darf das Bild wieder etwas breiter sein */
+  @media (max-width: 600px) {
+    .prose img {
+      max-width: 100%;
+    }
   }
 </style>
