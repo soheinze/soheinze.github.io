@@ -1,11 +1,11 @@
 ---
-title: Digital Humanities Studium
-pubDate: 2025-05-26
+title: Studium
+pubDate: 2026-01-26
 description: Alles rund um mein Digital Humanities Studium
 tags:
-  - public
   - studium
   - digitalhumanities
+  - public
 image: ""
 lang: de
 draft: false
@@ -34,13 +34,13 @@ Schwerpunkte im Bachelor waren für mich vor allem:
 
 - **Text Mining**  
     Wie kann man große Textmengen automatisch analysieren? Im Studium habe ich gelernt, Texte nicht nur zu lesen, sondern sie auch algorithmisch zu „verstehen“: Häufigkeiten, Muster, Stimmungen, Themen. Statt nur ein Buch zu interpretieren, kann man auf einmal ganze Korpora durchsuchen – von Zeitungsarchiven bis zu historischen Dokumenten.
-
+    
 - **Linguistische Informatik**  
     Sprache ist komplex – und genau das macht sie spannend für die Informatik. In der linguistischen Informatik ging es darum, Sätze zu zerlegen, Strukturen zu erkennen und Sprache so zu modellieren, dass Computer etwas damit anfangen können. Für mich als jemand mit Interesse an Sprachwissenschaft ein Highlight.
-
+    
 - **Information Retrieval**  
     Wie findet man in riesigen Datenmengen das, was man wirklich sucht? Suchmaschinenlogik, Relevanzbewertung, Ranking-Modelle – all das steckt hinter dem Begriff Information Retrieval. Diese Perspektive hat meine Sicht auf Suchmaschinen komplett verändert.
-
+    
 
 Daneben habe ich Wahlbereiche wie **Spanische Sprachwissenschaft** und **Musikwissenschaft** belegt. Das war für mich perfekt: einerseits Technik und Daten, andererseits Sprache und Musik – und alles ließ sich im Rahmen der Digital Humanities zusammenführen.
 
@@ -85,11 +85,11 @@ Auch in den Geisteswissenschaften werden Machine-Learning-Methoden immer wichtig
 - Texte automatisch zu klassifizieren,
 
 - Autor*innenschaften zu erkennen,
-
+  
 - Stimmungen oder Themen zu clustern,
-
+  
 - Muster in großen kulturellen Datensammlungen zu finden.
-
+  
 Im Studium habe ich gelernt, diese Methoden nicht als „Black Box“ zu sehen, sondern kritisch zu hinterfragen: Welche Daten stecken dahinter? Wo entstehen Verzerrungen (Bias)? Was bedeuten die Ergebnisse wirklich für die geisteswissenschaftliche Interpretation?
 
 
@@ -99,7 +99,7 @@ Besonders prägend war für mich während meines Studiums die Arbeit an **„Maj
 
 Hier kamen viele Elemente meines Studiums zusammen:
 
-- Kulturerbe-Daten wurden zur Grundlage eines Spiels gemacht.
+- Kulturerbe-Daten wurden zur Grundlage eines Spiels gemacht. 
 - Es ging um **Storytelling**, **Interaktivität** und **User Experience**.
 - Gleichzeitig spielten technische Aspekte wie **Programmierung**, **Mehrsprachigkeit** und **Datenaufbereitung** eine zentrale Rolle.
 
@@ -113,13 +113,13 @@ Was ich mitnehme:
 
 - **Interdisziplinäres Denken**  
     Ich habe gelernt, mich sowohl in geisteswissenschaftlicher als auch in technischer Logik zu bewegen – und zwischen beiden zu übersetzen.
-
+    
 - **Datenkompetenz**  
     Große Text- und Kulturdatenmengen schrecken mich nicht mehr ab. Ich sehe heute in Datensätzen Möglichkeiten, Geschichten zu erzählen.
-
+    
 - **kritischer Umgang mit Technik**  
     Algorithmen sind nie neutral. Gerade im Umgang mit kulturellem Erbe und menschlicher Erfahrung ist es wichtig zu verstehen, was Modelle tun – und was sie ausblenden.
-
+    
 - **Freude am Experimentieren**  
     Ob Drama Mining, digitale Noten oder Escape-Room-Spiel: Digital Humanities ermutigen dazu, Dinge auszuprobieren, Prototypen zu bauen und aus Fehlern zu lernen.
 
@@ -136,3 +136,6 @@ Für mich sind Digital Humanities inzwischen weniger „nur“ ein Studiengang, 
 Ob in zukünftigen Projekten, in der Kulturvermittlung, im Bereich KI, in der Musikanalyse oder in ganz neuen Kontexten – das, was ich im Digital-Humanities-Bachelor und -Master an der Universität Leipzig gelernt habe, begleitet mich weiter.
 
 Dies soll als erster Einblick dienen. In kommenden Beiträgen plane ich einzelne Themen noch genauer aufzuarbeiten und vorzustellen – und zu zeigen, wie vielseitig und lebendig Digital Humanities sein können.
+
+
+

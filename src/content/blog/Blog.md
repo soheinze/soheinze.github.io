@@ -6,6 +6,6 @@ tags:
   - personal
   - public
 image: ""
-lang: "de"
+lang: de
 draft: false
 ---

@@ -8,9 +8,5 @@ image: ""
 lang: de
 draft: false
 ---
-Beschreibung von verschiedenen Projekten aus meinem Leben die etwas größer waren oder Relevanz haben
-
-[[Majorelle Mystery]]
-
-...
+Hier findet ihr zukünftig Beschreibungen von verschiedenen Projekten aus meinem Leben, die ihren eigenen Raum bekommen sollen.
 
