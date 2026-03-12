@@ -23,6 +23,7 @@ jobs:
       - name: Install, build, and upload your Astro site
         uses: withastro/action@v3
         with:
+          node-version: 22
           package-manager: npm
 
   deploy:
