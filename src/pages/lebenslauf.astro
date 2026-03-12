@@ -25,10 +25,13 @@ const timelineData = allMilestones.sort((a, b) => b.data.order - a.data.order);
                     <div class="timeline-item">
                         <div class="timeline-dot" aria-hidden="true"></div>
 
-                        <div class="timeline-content">
+                        <div class="timeline-content expandable-card" onclick="this.classList.toggle('expanded')">
                             <span class="year-badge">{item.data.year}</span>
                             <h3>{item.data.title}</h3>
-                            <p>{item.body}</p>
+                            <div class="card-body">
+                                <p>{item.body}</p>
+                            </div>
+                            <div class="expand-indicator"></div>
                         </div>
                     </div>
                 ))
@@ -141,5 +144,36 @@ const timelineData = allMilestones.sort((a, b) => b.data.order - a.data.order);
         color: #4b5563;
         font-family: var(--font-body);
         line-height: 1.6;
+    }
+
+    /* --- EXPANDABLE LOGIC --- */
+    .expandable-card {
+        cursor: pointer;
+    }
+
+    .card-body p {
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* Hier definieren wir den Zeilenumbruch */
+        -webkit-box-orient: vertical;  
+        overflow: hidden;
+    }
+
+    .expandable-card.expanded .card-body p {
+        -webkit-line-clamp: unset;
+    }
+
+    /* Der Button-Text (als ::after Element generiert) */
+    .expand-indicator::after {
+        content: "▼ Mehr anzeigen";
+        color: var(--color-accent); /* Nutzt dein neues Pink */
+        font-size: 0.9rem;
+        font-weight: bold;
+        font-family: var(--font-body);
+        display: inline-block;
+        margin-top: 0.75rem;
+    }
+
+    .expandable-card.expanded .expand-indicator::after {
+        content: "▲ Weniger anzeigen";
     }
 </style>
