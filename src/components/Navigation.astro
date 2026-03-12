@@ -8,8 +8,8 @@ const t = useTranslations(lang);
 ---
 
 <header>
-  <nav>
-    <a href={`/${lang === "de" ? "" : lang}`} class="logo"
+  <nav aria-label="Hauptnavigation">
+    <a href={`/${lang === "de" ? "" : lang}`} class="logo" aria-label="Startseite"
       >Willkommen - Welcome - Bonjour</a
     >
 
@@ -182,13 +182,13 @@ const t = useTranslations(lang);
     margin-top: 10px;
   }
 
-  /* Damit das Menü sichtbar bleibt, wenn man ÜBER das Menü selbst hovert */
-  .dropdown:hover {
+  /* Damit das Menü sichtbar bleibt, wenn man Über das Menü selbst hovert oder fokussiert */
+  .dropdown:hover, .dropdown:focus-within {
     display: block;
   }
 
-  /* Die Logik zum Anzeigen */
-  .lang-switch:hover .dropdown {
+  /* Die Logik zum Anzeigen (Hover & Tastatur Fokus) */
+  .lang-switch:hover .dropdown, .lang-switch:focus-within .dropdown {
     display: block;
   }
 </style>
