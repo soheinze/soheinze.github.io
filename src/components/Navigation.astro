@@ -1,6 +1,6 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils'; // Diese Hilfsdatei erstellen wir gleich noch!
-import { languages } from '../i18n/ui';
+import { getLangFromUrl, useTranslations } from "../i18n/utils"; // Diese Hilfsdatei erstellen wir gleich noch!
+import { languages } from "../i18n/ui";
 
 // Wir ermitteln die aktuelle Sprache anhand der URL
 const lang = getLangFromUrl(Astro.url);
@@ -9,13 +9,18 @@ const t = useTranslations(lang);
 
 <header>
   <nav>
-    <a href={`/${lang === 'de' ? '' : lang}`} class="logo">Willkommen - Welcome - Bonjour</a>
+    <a href={`/${lang === "de" ? "" : lang}`} class="logo"
+      >Willkommen - Welcome - Bonjour</a
+    >
 
     <div class="nav-links">
-      <a href={`/${lang === 'de' ? '' : lang}`}>{t('nav.home')}</a>
-      <a href={`/${lang === 'de' ? '' : lang + '/'}about`}>{t('nav.about')}</a>
-      <a href={`/${lang === 'de' ? '' : lang + '/'}kontakt`}>{t('nav.contact')}</a>
+      <a href={`/${lang === "de" ? "" : lang}`}>{t("nav.home")}</a>
+      <a href={`/${lang === "de" ? "" : lang + "/"}about`}>{t("nav.about")}</a>
+      <a href={`/${lang === "de" ? "" : lang + "/"}kontakt`}
+        >{t("nav.contact")}</a
+      >
 
+      <!-- Sprachen fürs erste deaktiviert als Feature. Machen die meisten Browser auch schon gut genug.
       <div class="lang-switch">
         <span>{lang.toUpperCase()} ▼</span>
         <div class="dropdown">
@@ -23,7 +28,8 @@ const t = useTranslations(lang);
           <a href="/en/">EN</a> </br>
           <a href="/fr/">FR</a>
         </div>
-      </div>
+      </div> 
+      -->
     </div>
   </nav>
 </header>
@@ -35,7 +41,7 @@ const t = useTranslations(lang);
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 4px 10px -2px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.05);
     font-family: var(--font-hand);
   }
 
@@ -58,9 +64,9 @@ const t = useTranslations(lang);
 
   /* --- FIX 1: Alles in eine Zeile zwingen --- */
   .nav-links {
-    display: flex;          /* Macht es zur flexiblen Box */
-    align-items: center;    /* Zentriert alles vertikal */
-    gap: 2rem;              /* Definiert den Abstand zwischen ALLEN Elementen */
+    display: flex; /* Macht es zur flexiblen Box */
+    align-items: center; /* Zentriert alles vertikal */
+    gap: 2rem; /* Definiert den Abstand zwischen ALLEN Elementen */
   }
 
   /* Wir entfernen den alten margin-left, da wir jetzt 'gap' nutzen */
@@ -86,9 +92,9 @@ const t = useTranslations(lang);
     cursor: pointer;
     font-weight: bold;
     font-size: 1.1rem;
-    display: flex;      /* Damit Text und Pfeil sauber sitzen */
+    display: flex; /* Damit Text und Pfeil sauber sitzen */
     align-items: center;
-    height: 100%;       /* Nimmt die volle Höhe ein */
+    height: 100%; /* Nimmt die volle Höhe ein */
   }
 
   /* --- FIX 3: Das Dropdown Menü --- */
@@ -98,14 +104,14 @@ const t = useTranslations(lang);
 
     /* Positionierung direkt unter dem Wort "DE" */
     top: 100%;
-    right: 0;   /* Bündig mit der rechten Kante des Wortes */
+    right: 0; /* Bündig mit der rechten Kante des Wortes */
     /* Alternativ: left: 50%; transform: translateX(-50%); für zentriert */
 
     background: white;
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 0.5rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
     min-width: 80px; /* Mindestbreite damit es nicht quetscht */
     text-align: center;
@@ -127,7 +133,7 @@ const t = useTranslations(lang);
     transform: rotate(45deg);
   }
 
-/* --- Der Container für den Sprachumschalter --- */
+  /* --- Der Container für den Sprachumschalter --- */
   .lang-switch {
     position: relative;
     cursor: pointer;
@@ -140,9 +146,9 @@ const t = useTranslations(lang);
 
   /* --- Die unsichtbare Brücke (Fix für das Verschwinden) --- */
   .lang-switch::after {
-    content: '';
+    content: "";
     position: absolute;
-    top: 100%;   /* Beginnt direkt unter dem Text */
+    top: 100%; /* Beginnt direkt unter dem Text */
     left: 0;
     width: 100%; /* So breit wie der Text */
     height: 20px; /* Hoch genug, um die Lücke zum Menü zu füllen */
@@ -160,7 +166,7 @@ const t = useTranslations(lang);
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 0.5rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
     min-width: 80px;
     text-align: center;
