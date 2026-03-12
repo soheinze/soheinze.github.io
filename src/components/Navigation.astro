@@ -15,7 +15,13 @@ const t = useTranslations(lang);
 
     <div class="nav-links">
       <a href={`/${lang === "de" ? "" : lang}`}>{t("nav.home")}</a>
+
       <a href={`/${lang === "de" ? "" : lang + "/"}about`}>{t("nav.about")}</a>
+
+      <a href={`/${lang === "de" ? "" : lang + "/"}lebenslauf`}
+        >{t("nav.lebenslauf")}</a
+      >
+
       <a href={`/${lang === "de" ? "" : lang + "/"}kontakt`}
         >{t("nav.contact")}</a
       >

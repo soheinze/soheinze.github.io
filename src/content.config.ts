@@ -1,11 +1,9 @@
 import { defineCollection, z } from 'astro:content';
-// 1. IMPORTIERE DEN NEUEN GLOB-LOADER
 import { glob } from 'astro/loaders';
 
+// 1. Deine bestehende Blog-Collection
 const blogCollection = defineCollection({
-  // 2. ERSETZE 'type: content' DURCH DEN LOADER
   loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/blog" }),
-
   schema: z.object({
     title: z.string(),
     pubDate: z.coerce.date(),
@@ -17,6 +15,17 @@ const blogCollection = defineCollection({
   }),
 });
 
+// 2. NEU: Unsere Lebenslauf-Collection
+const lebenslaufCollection = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/lebenslauf" }),
+  schema: z.object({
+    title: z.string(), // z.B. "M.Sc. Digital Humanities"
+    year: z.string(),  // z.B. "2023 - 2025"
+    order: z.number(), // Um die Einträge chronologisch zu sortieren (z.B. 1, 2, 3...)
+  }),
+});
+
 export const collections = {
   'blog': blogCollection,
+  'lebenslauf': lebenslaufCollection, // Hier melden wir sie an
 };
