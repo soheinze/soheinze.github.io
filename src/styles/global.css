@@ -1,8 +1,34 @@
 /* src/styles/global.css */
+
 :root {
   --color-text: #2c3e50;
-  --font-hand: 'Patrick Hand', cursive; /* Unsere neue Schrift */
-  --font-body: system-ui, sans-serif;   /* Fallback für Fließtext */
+  --font-heading: 'Amarante', serif;
+  --font-body: 'Lora', serif;
+}
+
+/* src/styles/global.css */
+body {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  /* Ein warmer Kork-Grundton */
+  background-color: #2d7378;
+  /* Ein winziges, nahtloses CSS-Muster, das eine leichte Textur simuliert */
+  background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+  background-size: 10px 10px;
+  color: #1f2937;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-amarante {
+  font-family: var(--font-heading);
+  font-weight: normal;
+  /* Amarante hat meist nur einen Schnitt */
 }
 
 html {
@@ -14,22 +40,6 @@ html {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-h1, h2, h3 {
-  font-family: var(--font-hand); /* Überschriften handschriftlich */
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  color: var(--color-text);
-  font-family: var(--font-body);
-
-  /* PAPIER-EFFEKT: */
-  background-color: #f8f5e6; /* Ein warmes Creme-Weiß */
-  /* Ein SVG-Rausch-Filter für die Papierstruktur (Data URI, damit wir keine Datei brauchen) */
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
 }
 
 /* Damit Bilder nicht aus Containern rauslaufen */
@@ -44,5 +54,5 @@ img {
   border: 1px solid var(--color-border);
   border-radius: 8px;
   padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }

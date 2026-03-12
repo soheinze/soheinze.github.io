@@ -1,116 +1,117 @@
 ---
 const { post } = Astro.props;
-const formattedDate = post.data.pubDate.toLocaleDateString('de-DE');
-
-// --- POST-IT GENERATOR ---
-// 1. Eine Palette an typischen Post-It Farben definieren
-const colors = [
-  '#A3CCDA', // Pastel Blue
-  '#FDB7EA', // Pastel Pink
-  '#FFDCCC', // Pastel Orange
-  '#FBF3B9', // Pastel Yellow
-];
-
-// 2. Zufällige Farbe auswählen
-// Hinweis - Da Astro statisch baut, wird die Farbe bei jedem "npm run build" neu gewürfelt,
-// bleibt dann aber auf der fertigen Seite fest.
-const randomColor = colors[Math.floor(Math.random() * colors.length)];
-
-// 3. Zufällige Rotation zwischen -3 und +3 Grad für den "unperfekten" Look
-const randomRotation = Math.floor(Math.random() * 6) - 3;
+// Wir entfernen die zufälligen Rotationen und Farben für den cleanen Look
 ---
 
-<a
-  href={`/blog/${post.slug}`}
-  class="pin-card"
-  style={`--bg-color: ${randomColor}; --rotate: ${randomRotation}deg;`}
->
+<a href={`/blog/${post.id}`} class="pin-card">
   <article>
-    {post.data.image && (
-      <div class="img-container">
-        <img src={post.data.image} alt={post.data.title} loading="lazy" />
-      </div>
-    )}
+    {
+      post.data.image && (
+        <div class="img-container">
+          <img src={post.data.image} alt={post.data.title} loading="lazy" />
+        </div>
+      )
+    }
 
     <div class="content">
       <h3 class="title">{post.data.title}</h3>
-
       <p class="description">{post.data.description}</p>
 
       <div class="tags">
-        {post.data.tags.slice(0, 3).map((tag) => (
-          <span>#{tag}</span>
-        ))}
+        {
+          post.data.tags
+            .slice(0, 3)
+            .map((tag) => <span class="tag">#{tag}</span>)
+        }
       </div>
     </div>
-
   </article>
-
-
-
 </a>
 
 <style>
   .pin-card {
     display: block;
     text-decoration: none;
-    color: #333; /* Dunkle Schrift für Kontrast auf hellen Zetteln */
-
-    /* Hier nutzen wir die Zufallswerte */
-    background-color: var(--bg-color);
-    transform: rotate(var(--rotate));
-
-    /* Post-It Shape */
-    padding: 1.5rem;
-    box-shadow: 2px 3px 10px rgba(0,0,0,0.15); /* Schatten hebt den Zettel ab */
+    color: #333;
+    background-color: #ffffff; /* Cleaner weißer Hintergrund */
+    border-radius: 12px; /* Abgerundete Ecken wie im Mockup */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-    /* Wichtig für Masonry */
+    /* Wichtig für das Masonry-Layout auf der Startseite */
     break-inside: avoid;
     margin-bottom: 2rem;
-
-    /* Schriftart für den Zettel */
-    font-family: 'Patrick Hand', cursive;
+    overflow: hidden; /* Sorgt dafür, dass das Bild oben nicht über die runden Ecken ragt */
   }
 
-  /* Hover-Effekt: Zettel wird "gegriffen" und gerade gerückt */
+  /* Hover-Effekt: Karte hebt sich leicht an */
   .pin-card:hover {
-    transform: scale(1.05) rotate(0deg) !important;
-    box-shadow: 5px 8px 15px rgba(0,0,0,0.2);
-    z-index: 10;
-    cursor: pointer;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
-  .title {
-    margin: 0 0 1rem 0;
-    font-size: 1.5rem;
-    line-height: 1.2;
-    font-weight: bold;
-  }
-
-  .meta {
-    font-size: 0.9rem;
-    color: #555;
-    margin-bottom: 1rem;
-    border-bottom: 1px dashed #777; /* Eine gestrichelte Linie wie auf Notizpapier */
-    padding-bottom: 0.5rem;
+  .img-container {
+    width: 100%;
+    /* Etwas Platz nach unten zum Text */
+    border-bottom: 1px solid #f3f4f6;
   }
 
   .img-container img {
     width: 100%;
     height: auto;
-    border-radius: 4px;
-    mix-blend-mode: multiply; /* Lässt das Bild etwas mit dem Papier "verschmelzen" */
-    margin-bottom: 1rem;
-    filter: sepia(0.2); /* Leichter Retro-Touch */
+    display: block;
+    object-fit: cover;
+    /* Retro-Filter entfernt für moderne Optik */
+  }
+
+  .content {
+    padding: 1.5rem;
+  }
+
+  .title {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    /* Hier nutzen wir deine neue Art-Nouveau Schrift aus der global.css! */
+    font-family: var(--font-heading);
+    color: #111827;
+  }
+
+  .description {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
   }
 
   .tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    font-size: 0.8rem;
-    color: #444;
-    justify-content: flex-end; /* Tags rechts unten */
+  }
+
+  /* Neuer Hover-Effekt für den Titel (aus deinem alten Design) */
+  .pin-card:hover .title {
+    color: #4f46e5; /* Indigo */
+    transition: color 0.3s ease;
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    font-family: var(--font-body);
+    /* Deine persönliche Farbkombination für die Tags */
+    color: #ffffff;
+    background-color: #4f46e5; /* Indigo aus alter style.css */
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+  }
+
+  .tag:hover {
+    background-color: #ec4899; /* Pink aus alter style.css */
   }
 </style>

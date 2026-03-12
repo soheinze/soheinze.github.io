@@ -1,10 +1,10 @@
 ---
 // Wir importieren die globalen Styles, damit sie überall verfügbar sind
-import '../styles/global.css';
+import "../styles/global.css";
 
 // Import der Komponenten
-import Navigation from '../components/Navigation.astro';
-import Footer from '../components/Footer.astro';
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
 
 // Wir definieren Props, damit wir jeder Seite einen eigenen Titel geben können
 const { pageTitle } = Astro.props;
@@ -17,20 +17,23 @@ const { pageTitle } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amarante&family=Lora:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
 
     <title>{pageTitle}</title>
   </head>
 
   <body>
-      <Navigation/>
+    <Navigation />
 
-      <main>
-        <slot/>
-      </main>
+    <main>
+      <slot />
+    </main>
 
-      <Footer/>
-    </body>
+    <Footer />
+  </body>
 </html>

@@ -1,26 +1,24 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
-  // Auch hier: Nur deutsche oder sprachlose Posts generieren
-  const posts = await getCollection('blog', ({ data }) => {
-    return data.lang === 'de' || !data.lang;
-  });
-
-  return posts.map(post => ({
-    params: { slug: post.slug },
-    props: { post },
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    // WICHTIG: Hier ändern wir post.slug zu post.id
+    params: { slug: post.id },
+    props: { post }, // (oder { entry }, je nachdem wie es bei dir heißt)
   }));
 }
 
 const { post } = Astro.props;
-const { Content } = await post.render();
-const formattedDate = post.data.pubDate.toLocaleDateString('de-DE');
+const { Content } = await render(post); // Hier nutzen wir die neue Funktion!
+const formattedDate = post.data.pubDate
+  ? post.data.pubDate.toLocaleDateString("de-DE")
+  : "";
 ---
 
 <BaseLayout pageTitle={post.data.title}>
-
   <article class="paper-sheet">
     <a href="/" class="back-link">← Zurück zur Pinnwand</a>
 
@@ -30,17 +28,18 @@ const formattedDate = post.data.pubDate.toLocaleDateString('de-DE');
       <hr class="divider" />
     </header>
 
-    {post.data.image && (
-      <div class="image-container">
-        <img src={post.data.image} alt={post.data.title} />
-      </div>
-    )}
+    {
+      post.data.image && (
+        <div class="image-container">
+          <img src={post.data.image} alt={post.data.title} />
+        </div>
+      )
+    }
 
     <div class="prose">
       <Content />
     </div>
   </article>
-
 </BaseLayout>
 
 <style>
@@ -52,7 +51,7 @@ const formattedDate = post.data.pubDate.toLocaleDateString('de-DE');
     padding: 3rem 4rem;
 
     /* Der 3D-Effekt: Schwebt leicht über dem Tisch */
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     border-radius: 2px;
 
     /* Minimal gedreht für den organischen Look */
@@ -120,7 +119,7 @@ const formattedDate = post.data.pubDate.toLocaleDateString('de-DE');
   .image-container img {
     max-width: 100%;
     border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transform: rotate(1deg); /* Foto leicht schief eingeklebt */
     border: 8px solid white; /* Weißer Foto-Rahmen */
   }
@@ -177,12 +176,12 @@ const formattedDate = post.data.pubDate.toLocaleDateString('de-DE');
   /* :global(img) sagt Astro - "Wende das auf ALLE Bilder in .prose an,
    egal woher sie kommen" */
   .prose :global(img) {
-    display: block;        /* Macht das Bild zum Block-Element (wichtig fürs Zentrieren) */
-    margin: 2rem auto;     /* Oben/Unten: Abstand, Links/Rechts: Automatisch (Zentriert) */
-    max-width: 70%;        /* Begrenzt die Breite auf 70% des Textes -> wirkt kleiner */
-    height: auto;          /* Behält das Seitenverhältnis bei */
-    border-radius: 4px;    /* Leicht abgerundete Ecken wie beim Titelbild */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Leichter Schatten für Tiefe */
+    display: block; /* Macht das Bild zum Block-Element (wichtig fürs Zentrieren) */
+    margin: 2rem auto; /* Oben/Unten: Abstand, Links/Rechts: Automatisch (Zentriert) */
+    max-width: 70%; /* Begrenzt die Breite auf 70% des Textes -> wirkt kleiner */
+    height: auto; /* Behält das Seitenverhältnis bei */
+    border-radius: 4px; /* Leicht abgerundete Ecken wie beim Titelbild */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Leichter Schatten für Tiefe */
   }
 
   /* Auf sehr kleinen Handys darf das Bild wieder etwas breiter sein */
