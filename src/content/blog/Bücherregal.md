@@ -7,7 +7,7 @@ tags:
   - public
 image: ""
 lang: de
-draft: false
+draft: true
 ---
 # Das Digitale Bücherregal
 

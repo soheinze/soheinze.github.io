@@ -1,11 +1,15 @@
 ---
-title: "English Version"
-pubDate: 2026-01-26   
-description: "English Language Version."
-tags: [intro, personal, webdev, public]
-image: ""             # Optional: Bild-URL oder leer lassen
-draft: false
-lang: "en"
+title: English Version
+pubDate: 2026-01-26
+description: English Language Version.
+tags:
+  - intro
+  - personal
+  - webdev
+  - public
+image: ""
+draft: true
+lang: en
 ---
 
 # Hello World!

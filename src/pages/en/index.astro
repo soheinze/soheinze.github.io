@@ -8,6 +8,7 @@ const pageTitle = "My Pinboard";
 // 1. Wir holen ALLE Posts aus der Collection 'blog'
 // Filter: Nur Posts holen, die 'lang: en' haben
 const allPosts = await getCollection('blog', ({ data }) => {
+  if (data.draft) return false;
   return data.lang === 'en';
 });
 

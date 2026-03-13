@@ -6,8 +6,9 @@ import PinCard from '../../components/PinCard.astro';
 const pageTitle = "Mon Tableau";
 
 // 1. Wir holen ALLE Posts aus der Collection 'blog'
-// Filter: Nur Posts holen, die 'lang: en' haben
+// Filter: Nur Posts holen, die 'lang: fr' haben
 const allPosts = await getCollection('blog', ({ data }) => {
+  if (data.draft) return false;
   return data.lang === 'fr';
 });
 

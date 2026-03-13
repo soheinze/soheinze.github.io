@@ -20,7 +20,9 @@ const lebenslaufCollection = defineCollection({
   loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/lebenslauf" }),
   schema: z.object({
     title: z.string(), // z.B. "M.Sc. Digital Humanities"
-    year: z.string(),  // z.B. "2023 - 2025"
+    year: z.number(),  // z.B. 2023
+    startDate: z.string().optional(), // z.B. "10.2019"
+    endDate: z.string().optional(),   // z.B. "03.2023"
     order: z.number(), // Um die Einträge chronologisch zu sortieren (z.B. 1, 2, 3...)
   }),
 });
