@@ -184,10 +184,59 @@ const formattedDate = post.data.pubDate
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Leichter Schatten für Tiefe */
   }
 
+  /* Tabellen-Styling */
+  .prose :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    border: 1px solid #eee;
+  }
+
+  .prose :global(th) {
+    background-color: #f8f9fa;
+    color: var(--color-text);
+    font-weight: bold;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-bottom: 2px solid var(--color-accent);
+  }
+
+  .prose :global(td) {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+  }
+
+  .prose :global(tr:nth-child(even)) {
+    background-color: #fafafa;
+  }
+
+  .prose :global(tr:hover) {
+    background-color: #f1f1f1;
+  }
+
+  /* Responsive Tabellen */
+  .prose :global(.table-wrapper) {
+    overflow-x: auto;
+    margin: 2rem 0;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+
   /* Auf sehr kleinen Handys darf das Bild wieder etwas breiter sein */
   @media (max-width: 600px) {
     .prose img {
       max-width: 100%;
+    }
+    
+    .prose :global(table) {
+      font-size: 0.85rem; /* Etwas kleinere Schrift auf Handys */
+    }
+
+    .prose :global(th), .prose :global(td) {
+      padding: 0.5rem;
     }
   }
 </style>

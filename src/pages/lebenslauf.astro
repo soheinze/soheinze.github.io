@@ -6,8 +6,14 @@ const pageTitle = "Timeline Exploring";
 // Wir holen alle Einträge aus dem Ordner "lebenslauf"
 const allMilestones = await getCollection("lebenslauf");
 
-// Wir sortieren sie nach der 'order' Nummer (höchste/neueste zuerst)
-const timelineData = allMilestones.sort((a, b) => b.data.order - a.data.order);
+// Wir sortieren sie nach Jahr (primär) und dann nach 'order' (sekundär)
+// Höchste/neueste Werte zuerst (absteigend)
+const timelineData = allMilestones.sort((a, b) => {
+    if (b.data.year !== a.data.year) {
+        return b.data.year - a.data.year;
+    }
+    return b.data.order - a.data.order;
+});
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -239,7 +245,7 @@ const timelineData = allMilestones.sort((a, b) => b.data.order - a.data.order);
 
     .card-body {
         display: -webkit-box;
-        -webkit-line-clamp: 4; /* Etwas mehr Text für Markdown */
+        -webkit-line-clamp: 2; /* Nur die ersten zwei Zeilen anzeigen */
         -webkit-box-orient: vertical;  
         overflow: hidden;
     }
