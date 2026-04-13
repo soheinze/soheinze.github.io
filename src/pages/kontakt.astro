@@ -1,0 +1,148 @@
+---
+import { getEntry, render } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+
+const entry = await getEntry("legal", "kontakt");
+if (!entry)
+  throw new Error(
+    "Kontakt Markdown file not found in src/content/legal/kontakt.md",
+  );
+const { Content } = await render(entry);
+---
+
+<Layout title={`${entry.data.title} | Sonja Heinze`}>
+  <div class="container contact-section">
+    <div class="contact-header">
+      <h1>{entry.data.title}</h1>
+      <div class="intro-text">
+        <Content />
+      </div>
+    </div>
+
+    <div class="contact-form-wrapper">
+      <!-- To wire this up without a backend, set logic with Formspree or Netlify Forms -->
+      <form
+        class="contact-form"
+        action="https://form.taxi/s/3c1fh2je"
+        method="POST"
+      >
+        <div class="form-group">
+          <label for="name">Dein Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="Dein Name"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-Mail Adresse</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="deine@mail.de"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Nachricht</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="6"
+            required
+            placeholder="Deine Nachricht an mich..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Nachricht Senden</button>
+      </form>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .contact-section {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .contact-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .contact-header h1 {
+    font-size: 3rem;
+  }
+
+  .intro-text {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+  }
+
+  .contact-form-wrapper {
+    background-color: var(--surface-color);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  }
+
+  .form-group {
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  label {
+    font-weight: 500;
+    font-family: var(--font-body);
+    color: var(--text-primary);
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    background-color: var(--bg-color);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--text-primary);
+    transition: var(--transition-smooth);
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--highlight-teal);
+    box-shadow: 0 0 0 3px rgba(73, 164, 154, 0.2);
+  }
+
+  .submit-btn {
+    width: 100%;
+    background-color: var(--text-primary);
+    color: var(--bg-color);
+    border: none;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    font-size: 1.1rem;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    margin-top: var(--spacing-md);
+  }
+
+  .submit-btn:hover {
+    background-color: var(--highlight-teal);
+    transform: translateY(-2px);
+  }
+</style>

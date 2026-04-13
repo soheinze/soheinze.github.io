@@ -1,0 +1,32 @@
+---
+import { getEntry, render } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+const entry = await getEntry('legal', 'impressum');
+if (!entry) throw new Error("Impressum Markdown file not found in src/content/legal/impressum.md");
+const { Content } = await render(entry);
+---
+
+<Layout title={`${entry.data.title} | Sonja Heinze`}>
+  <div class="container legal-section">
+    <article class="prose">
+      <h1>{entry.data.title}</h1>
+      <Content />
+    </article>
+  </div>
+</Layout>
+
+<style>
+  .legal-section {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  h1 { font-size: 3rem; margin-bottom: var(--spacing-xl); }
+  
+  .prose { color: var(--text-secondary); }
+  .prose :global(h2) { font-size: 1.5rem; margin-top: var(--spacing-lg); margin-bottom: var(--spacing-sm); color: var(--text-primary); }
+  .prose :global(p) { margin-bottom: var(--spacing-md); line-height: 1.7; }
+</style>

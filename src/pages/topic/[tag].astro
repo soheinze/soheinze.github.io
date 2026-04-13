@@ -1,0 +1,71 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const allBlog = await getCollection('blog');
+  const allPins = await getCollection('pins');
+  
+  // Combine all items
+  const allItems = [...allBlog, ...allPins];
+  
+  // Extract all unique tags
+  const uniqueTags = [...new Set(allItems.flatMap((item) => item.data.tags || []))];
+  
+  return uniqueTags.map((tag) => {
+    // Filter items for this specific tag
+    const filteredItems = allItems.filter((item) => 
+      item.data.tags?.includes(tag)
+    );
+    
+    return {
+      params: { tag: tag.toLowerCase() },
+      props: { tag, items: filteredItems },
+    };
+  });
+}
+
+const { tag, items } = Astro.props;
+---
+<Layout title={`Thema: ${tag} | Sonja Heinze`}>
+  <div class="container hero-section">
+    <h1>Thema: <span>{tag}</span></h1>
+    <p class="intro-text">Alle Einträge und Notizen zum Thema "{tag}".</p>
+    
+    <div class="pinboard-grid">
+      {items.map((item: any) => (
+        <a href={`/${item.collection}/${item.id}`} class="pin-card topic-card-link">
+          <span class="pin-card-tag">{item.collection === 'blog' ? 'Blog' : 'Notiz'}</span>
+          <h3 class="pin-card-title">{item.data.title}</h3>
+          {(item.data.description || item.body) && (
+            <p class="pin-card-excerpt">
+              {item.data.description || "Lies den ganzen Eintrag..."}
+            </p>
+          )}
+        </a>
+      ))}
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .hero-section {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+  }
+
+  h1 span {
+    color: var(--accent-color);
+    text-transform: capitalize;
+  }
+
+  .topic-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+  }
+
+  .topic-card-link:hover .pin-card-tag {
+    color: var(--text-primary);
+  }
+</style>

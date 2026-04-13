@@ -1,0 +1,152 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  // Fetch all collections
+  const blogEntries = await getCollection('blog');
+  const pinsEntries = await getCollection('pins');
+  const lebenslaufEntries = await getCollection('lebenslauf');
+  const linksEntries = await getCollection('links');
+
+  const allEntries = [...blogEntries, ...pinsEntries, ...lebenslaufEntries, ...linksEntries];
+
+  // Map each entry to a dynamic path using its collection name and nested ID
+  return allEntries.map(entry => ({
+    params: { 
+      collection: entry.collection, 
+      id: entry.id 
+    },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<Layout title={`${entry.data.title} | Sonja Heinze`}>
+  <div class="container article-container">
+    <article class="prose">
+      <header class="article-header">
+        <div class="meta-row">
+          <span class="collection-tag">{entry.collection}</span>
+          {'date' in entry.data && entry.data.date && <time class="post-date">{new Date(entry.data.date).toLocaleDateString('de-DE')}</time>}
+        </div>
+        <h1>{entry.data.title}</h1>
+      </header>
+      
+      <div class="article-content">
+        <Content />
+      </div>
+    </article>
+  </div>
+</Layout>
+
+<style>
+  .article-container {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    max-width: 800px; /* Reading optimized width */
+    margin: 0 auto;
+  }
+
+  .article-header {
+    margin-bottom: var(--spacing-xl);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: var(--spacing-lg);
+  }
+
+  .meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .collection-tag {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent-color);
+    font-weight: 500;
+  }
+
+  .post-date {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  .article-header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 0;
+    line-height: 1.2;
+  }
+
+  /* Global Markdown Typographic Overrides */
+  .article-content {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+  }
+  
+  .article-content :global(p) {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .article-content :global(h2) {
+    font-size: 1.8rem;
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .article-content :global(h3) {
+    font-size: 1.4rem;
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .article-content :global(ul), .article-content :global(ol) {
+    margin-bottom: var(--spacing-lg);
+    padding-left: var(--spacing-lg);
+  }
+
+  .article-content :global(li) {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .article-content :global(a) {
+    color: var(--accent-color);
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 4px;
+    transition: var(--transition-smooth);
+  }
+
+  .article-content :global(a:hover) {
+    text-decoration-color: var(--accent-color);
+  }
+
+  /* Table Styles for Links */
+  .article-content :global(table) {
+    width: 100%;
+    margin-top: var(--spacing-xl);
+    border-collapse: collapse;
+  }
+  
+  .article-content :global(th), .article-content :global(td) {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+    text-align: left;
+  }
+
+  .article-content :global(th) {
+    font-family: var(--font-heading);
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--text-primary);
+  }
+
+  .article-content :global(tr:hover) {
+    background-color: var(--surface-color-hover);
+  }
+</style>

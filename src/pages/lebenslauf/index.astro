@@ -1,0 +1,259 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+const entries = await getCollection("lebenslauf");
+
+// Helper function to safely parse "MM.YYYY" to a real Date object
+function parseMYSB(dateStr: string) {
+  if (!dateStr || !dateStr.includes(".")) return new Date(0);
+  const [month, year] = dateStr.split(".");
+  return new Date(parseInt(year), parseInt(month) - 1);
+}
+
+// Sort entries dynamically: Newest `startDate` first (Descending)
+entries.sort((a, b) => {
+  const dateA = parseMYSB(a.data.startDate);
+  const dateB = parseMYSB(b.data.startDate);
+  return dateB.getTime() - dateA.getTime();
+});
+---
+
+<Layout title="Lebenslauf | Sonja Heinze">
+  <div class="container timeline-section">
+    <header class="timeline-header">
+      <h1>Lebenslauf</h1>
+      <p class="intro-text">
+        Mein Werdegang, Meilensteine und Projekte auf einen Blick.
+      </p>
+    </header>
+
+    <div class="timeline-container">
+      {
+        entries.map(async (entry) => {
+          const { Content } = await render(entry);
+          return (
+            <article class="timeline-card">
+              <div class="timeline-aside">
+                <span class="timeline-year">
+                  {entry.data.endDate 
+                    ? `${entry.data.startDate} - ${entry.data.endDate}` 
+                    : `Seit ${entry.data.startDate}`}
+                </span>
+              </div>
+
+              <div class="timeline-content-box">
+                <h3 class="timeline-title">{entry.data.title}</h3>
+                {entry.data.role && <h4 class="timeline-role">{entry.data.role}</h4>}
+
+                <div class="collapsible-content">
+                  <div class="prose-content">
+                    <Content />
+                  </div>
+                </div>
+
+                <button class="toggle-btn" aria-expanded="false">
+                  Mehr anzeigen
+                </button>
+              </div>
+            </article>
+          );
+        })
+      }
+    </div>
+  </div>
+</Layout>
+
+<script>
+  // Vanilla JS interaction for the "Mehr anzeigen" toggle
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggleButtons = document.querySelectorAll(".toggle-btn");
+
+    toggleButtons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        const button = e.target as HTMLButtonElement;
+        const card = button.closest(".timeline-card");
+        const content = card?.querySelector(".collapsible-content");
+
+        if (content && card) {
+          const isExpanded = card.classList.contains("expanded");
+
+          if (isExpanded) {
+            card.classList.remove("expanded");
+            button.textContent = "Mehr anzeigen";
+            button.setAttribute("aria-expanded", "false");
+          } else {
+            card.classList.add("expanded");
+            button.textContent = "Weniger anzeigen";
+            button.setAttribute("aria-expanded", "true");
+          }
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .timeline-section {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    max-width: 900px;
+  }
+
+  .timeline-header {
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+  }
+
+  .timeline-header h1 {
+    font-size: 3rem;
+  }
+
+  .intro-text {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+  }
+
+  .timeline-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+
+  .timeline-card {
+    display: flex;
+    gap: var(--spacing-lg);
+  }
+
+  .timeline-aside {
+    flex: 0 0 150px;
+    border-right: 2px solid var(--border-color);
+    padding-right: var(--spacing-md);
+    text-align: right;
+    padding-top: var(--spacing-sm);
+  }
+
+  .timeline-year {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    color: var(--highlight-teal);
+    font-weight: 500;
+  }
+
+  .timeline-content-box {
+    flex: 1;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    position: relative;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  }
+
+  .timeline-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+  }
+
+  .timeline-role {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .collapsible-content {
+    /* Limit height to roughly 2 lines of text */
+    max-height: 52px;
+    overflow: hidden;
+    position: relative;
+    transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+  }
+
+  .collapsible-content::after {
+    /* Gradient fade out effect perfectly matching the surface color */
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background: linear-gradient(to bottom, transparent, var(--surface-color));
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  /* Expanded State */
+  .timeline-card.expanded .collapsible-content {
+    max-height: 2000px; /* High arbitrary max-height to force opening */
+    transition: max-height 0.6s ease-in-out;
+  }
+
+  .timeline-card.expanded .collapsible-content::after {
+    opacity: 0;
+  }
+
+  .prose-content {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  .prose-content :global(p) {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .prose-content :global(ul) {
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-lg);
+  }
+
+  .prose-content :global(li) {
+    margin-bottom: 0.25rem;
+  }
+
+  .prose-content :global(strong) {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .toggle-btn {
+    appearance: none;
+    background: none;
+    border: none;
+    margin-top: var(--spacing-md);
+    padding: 0;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--highlight-pink);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+  }
+
+  .toggle-btn:hover {
+    color: var(--accent-color);
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .timeline-card {
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .timeline-aside {
+      flex: none;
+      border-right: none;
+      border-bottom: 2px solid var(--border-color);
+      text-align: left;
+      padding-right: 0;
+      padding-bottom: var(--spacing-sm);
+      margin-bottom: var(--spacing-md);
+    }
+  }
+</style>

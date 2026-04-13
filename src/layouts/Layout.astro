@@ -1,0 +1,161 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Sonja Heinze - Digital Garden, Art & Professional Portfolio" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="main-header container">
+      <nav aria-label="Main Navigation">
+        <a href="/" class="brand-link">Sonja Heinze</a>
+        <button class="mobile-menu-toggle" aria-expanded="false" aria-label="Menü">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/about">Über Mich</a>
+          <a href="/lebenslauf">Lebenslauf</a>
+          <a href="/links">Links</a>
+          <a href="/kontakt">Kontakt</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="main-footer container">
+      <div class="footer-content">
+        <p>&copy; {new Date().getFullYear()} Sonja Heinze. Alle Rechte vorbehalten.</p>
+        <div class="footer-links">
+          <a href="/kontakt">Kontakt</a>
+          <a href="/impressum">Impressum</a>
+          <a href="/datenschutz">Datenschutz</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const toggleBtn = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (toggleBtn && navLinks) {
+          toggleBtn.addEventListener('click', () => {
+            const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+            toggleBtn.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+            navLinks.classList.toggle('is-open');
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  .main-header {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: var(--spacing-md);
+  }
+
+  .brand-link {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: var(--spacing-sm);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: var(--spacing-lg);
+  }
+
+  .nav-links a {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .main-footer {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    border-top: 1px solid var(--border-color);
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: var(--spacing-md);
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0;
+    }
+    
+    .mobile-menu-toggle {
+      display: block;
+    }
+
+    .nav-links {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      margin-top: var(--spacing-md);
+      padding-top: var(--spacing-md);
+      border-top: 1px dashed var(--border-color);
+      gap: var(--spacing-md);
+    }
+    
+    .nav-links.is-open {
+      display: flex;
+    }
+
+    .footer-content {
+      flex-direction: column;
+      gap: var(--spacing-md);
+      align-items: center;
+      text-align: center;
+    }
+  }
+</style>
