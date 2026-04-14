@@ -5,5 +5,5 @@ color: "purple"
 ---
 | Organisation | Link | Rolle |
 | ------------ | ---- | ----- |
-| SY Ahab | [SY Ahab Webseite](#) | Stammcrew |
-| Coding da Vinci | [Stipendium Seite](#) | Stipendiatin |
+| Fit Für Zahlen e.V. | [Fit für Zahlen](https://fitfuerzahlen.de/) | Gründungsmitglied und Stellvertr. Vorsitzende |
+| Kurs auf die Bretagne e.V. | [Kurs auf die Bretagne](https://kurs-bretagne.de/) | Mit-Initiatorin und Gründungsmitglied |

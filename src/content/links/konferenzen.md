@@ -5,4 +5,4 @@ color: "pink"
 ---
 | Titel | Link | Beschreibung |
 | ----- | ---- | ------------ |
-| Lofi Girl | [YouTube](#) | Beste Musik zum Coden |
+| PyConDE&PyData Darmstadt 2026 | [Webseite](https://2026.pycon.de/) | Konferenz für Python und Data Science | 
