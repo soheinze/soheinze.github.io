@@ -1,38 +1,39 @@
-name: Deploy to GitHub Pages
+name: Build and Deploy to Production Branch
 
 on:
-  # Löst den Build bei jedem Push auf den Haupt-Branch aus
+  # Trigger build on push to main or master
   push:
     branches: [ main, master ]
-  # Erlaubt es dir, den Workflow auch manuell über GitHub zu starten
+  # Allow manual trigger from GitHub UI
   workflow_dispatch:
 
-# Notwendige Berechtigungen für GitHub Pages
+# Grant permission to write contents back to the repo (needed to push the build)
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
-      - name: Install, build, and upload your Astro site
-        uses: withastro/action@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 22
-          package-manager: npm
+          cache: npm
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Deploy to Branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: production-build
+
