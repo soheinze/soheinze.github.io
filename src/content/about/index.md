@@ -18,9 +18,12 @@ Ich lade dich ein, dich umzusehen, durch die Navigation zu browsen und vielleich
 Hier sind ein paar Themengebiete (sortiert von A-Z) für die ich mich insbesondere im Moment interessiere und zu denen ihr in Zukunft hier auf dieser Seite auch mehr Informationen und Beiträge erwarten dürft:
 
 - Astrologie
+- Blockchain
 - Dezentralisierung
 - Digital Humanities
 - Digitales Kulturerbe
+- Ehrenamt
+- Gamification
 - Human Design 
 - Kultur (allgemein)
 - Kulturaustausch
@@ -28,10 +31,11 @@ Hier sind ein paar Themengebiete (sortiert von A-Z) für die ich mich insbesonde
 - Künstliche Intelligenz
 - Musik
 - Neurodivergenz
-- Open Source
+- Open Source Projekte
 - Podcast
 - Python
 - Segeln
+- Stralsund
 - Unternehmensgründung
 - Wissensmanagement
 - und mehr ...

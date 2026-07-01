@@ -6,10 +6,10 @@ Willkommen zum Quellcode meines digitalen Gartens! Diese Website wurde als **Ast
 
 Die Website kann ganz einfach lokal auf dem Computer gestartet werden:
 
-| Befehl | Aktion |
-| :--- | :--- |
-| `npm install` | Installiert alle nötigen Abhängigkeiten. |
-| `npm run dev` | Startet den lokalen Server auf `localhost:4321`. |
+| Befehl          | Aktion                                                                    |
+| :-------------- | :------------------------------------------------------------------------ |
+| `npm install`   | Installiert alle nötigen Abhängigkeiten.                                  |
+| `npm run dev`   | Startet den lokalen Server auf `localhost:4321`.                          |
 | `npm run build` | Kompiliert die gesamte Website in den `./dist/` Ordner (fürs Deployment). |
 
 ---

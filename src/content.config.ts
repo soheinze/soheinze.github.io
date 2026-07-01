@@ -25,7 +25,7 @@ const lebenslaufCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     startDate: z.string(),
-    endDate: z.string().optional(),
+    endDate: z.string().nullable().optional(),
     role: z.string().optional(),
     yearRange: z.string().optional(),
     order: z.number().optional(),

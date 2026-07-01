@@ -11,10 +11,14 @@
             "id": "44d563f79b0b8d3a",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "Neuer Tab"
+              "title": "README"
             }
           }
         ]
@@ -177,5 +181,35 @@
     }
   },
   "active": "44d563f79b0b8d3a",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "dist/index.html",
+    "dist/pins/dummy-thought-1/index.html",
+    "dist/pins/dummy-thought/index.html",
+    "dist/pins/dummy-thought-1",
+    "dist/pins/dummy-thought",
+    "dist/pins",
+    "dist/blog/segeln/segelecke-intro/index.html",
+    "dist/blog/research/digital-humanities-studium/index.html",
+    "dist/blog/kunstecke/kunstecke-intro/index.html",
+    "dist/blog/business/qubeloco-intro/index.html",
+    "dist/blog/segeln/segelecke-intro",
+    "dist/images/love.jpg",
+    "dist/images/dummy_portrait.png",
+    "dist/favicon.svg",
+    "src/content/lebenslauf/MasterStudium.md",
+    "src/content/lebenslauf/MajorelleMystery.md",
+    "src/content/lebenslauf/Kurs auf die Bretagne (e.V.).md",
+    "src/content/lebenslauf/Hafenmeisterin.md",
+    "src/content/lebenslauf/Fit für Zahlen.md",
+    "src/content/lebenslauf/DualesStudium.md",
+    "src/content/lebenslauf/Bootswerft.md",
+    "src/content/lebenslauf/BachelorStudium.md",
+    "src/content/lebenslauf/AppliedScrum.md",
+    "src/content/lebenslauf/Ahab.md",
+    "README.md",
+    "sonjaheinze_struktur.md",
+    "src/_structure.md",
+    "src/content/lebenslauf/Unbenannt.md",
+    "gemini.md"
+  ]
 }

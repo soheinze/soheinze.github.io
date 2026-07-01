@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "about/index.md",
+                "file": "pins/dummy-thought 1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "dummy-thought 1"
             }
           }
         ]
@@ -185,6 +185,9 @@
   },
   "active": "59bce3734cba46a8",
   "lastOpenFiles": [
+    "pins/dummy-thought.md",
+    "pins/dummy-thought 1.md",
+    "about/index.md",
     "legal/datenschutz.md",
     "home/index.md",
     "links/mitgliedschaften.md",
@@ -194,7 +197,6 @@
     "links/recommendations.md",
     "links/profiles.md",
     "links/misc.md",
-    "about/index.md",
     "lebenslauf/majmys-game.md",
     "lebenslauf/VGH.md",
     "lebenslauf/MasterStudium.md",
@@ -208,8 +210,6 @@
     "blog/segeln/segelecke-intro.md",
     "blog/business/qubeloco-intro.md",
     "blog/kunstecke/kunstecke-intro.md",
-    "blog/research/digital-humanities-studium.md",
-    "pins/dummy-thought.md",
-    "pins/dummy-research.md"
+    "blog/research/digital-humanities-studium.md"
   ]
 }
