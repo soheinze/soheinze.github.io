@@ -1,7 +1,7 @@
 ---
 title: Gründerin und Geschäftsführerin von QuBe LoCo
 year: 2025
-startDate: 16.12.2025
+startDate: "01.2026"
 endDate:
 order: 1
 ---
